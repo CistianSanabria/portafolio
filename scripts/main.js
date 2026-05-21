@@ -37,109 +37,71 @@ const projectsData = {
   }
 };
 
-// Smooth scroll navigation
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const targetId = this.getAttribute('href');
-    if (targetId === '#') return;
-    
-    const target = document.querySelector(targetId);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-});
+// Cached DOM references — queried once at startup
+const modal = document.getElementById('projectModal');
+const modalTitle = document.getElementById('modalTitle');
+const modalDescription = document.getElementById('modalDescription');
+const modalDetails = document.getElementById('modalDetails');
+const navbar = document.querySelector('.navbar');
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
 
 // Project card interactions
 document.querySelectorAll('.project-card').forEach(card => {
   card.addEventListener('click', function () {
-    const projectId = this.getAttribute('data-project');
-    const projectData = projectsData[projectId];
-    
-    if (projectData) {
-      showProjectModal(projectData);
-    }
+    const projectData = projectsData[this.getAttribute('data-project')];
+    if (projectData) showProjectModal(projectData);
   });
 });
 
-// Project modal functionality
+// Project modal
 function showProjectModal(data) {
-  const modal = document.getElementById('projectModal');
-  const title = document.getElementById('modalTitle');
-  const description = document.getElementById('modalDescription');
-  const details = document.getElementById('modalDetails');
-  
-  title.textContent = data.title;
-  description.textContent = data.meta;
-  
-  let tagsHtml = '<div style="margin-top: 1.5rem;"><div style="margin-bottom: 1rem;">' + data.details + '</div>';
-  tagsHtml += '<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">';
-  
-  data.tags.forEach(tag => {
-    tagsHtml += `<span style="background: #f5f5f5; color: #666; padding: 0.3rem 0.8rem; border-radius: 6px; font-size: 0.8rem;">${tag}</span>`;
-  });
-  
-  tagsHtml += '</div></div>';
-  
-  details.innerHTML = tagsHtml;
+  modalTitle.textContent = data.title;
+  modalDescription.textContent = data.meta;
+  modalDetails.innerHTML = `
+    <div class="modal-details-body">
+      <p>${data.details}</p>
+      <div class="modal-tags">
+        ${data.tags.map(tag => `<span class="skill-tag">${tag}</span>`).join('')}
+      </div>
+    </div>
+  `;
   modal.classList.add('active');
 }
 
-// Close modal
-document.getElementById('projectModal').addEventListener('click', function (e) {
-  if (e.target === this) {
-    this.classList.remove('active');
-  }
-});
+function closeModal() {
+  modal.classList.remove('active');
+}
 
-document.querySelector('.modal-close').addEventListener('click', function () {
-  document.getElementById('projectModal').classList.remove('active');
+// Close modal — backdrop click, X button, Escape key
+modal.addEventListener('click', function (e) {
+  if (e.target === this) closeModal();
 });
-
-// Keyboard close modal
+document.querySelector('.modal-close').addEventListener('click', closeModal);
 document.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape') {
-    document.getElementById('projectModal').classList.remove('active');
-  }
+  if (e.key === 'Escape') closeModal();
 });
 
-// Mobile menu (hamburger toggle)
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-
+// Mobile menu — toggle .active class (matches CSS rule .nav-menu.active)
 hamburger?.addEventListener('click', function () {
   navMenu?.classList.toggle('active');
 });
 
-// Close mobile menu on link click
+// Close mobile menu on nav link click
 document.querySelectorAll('.nav-link').forEach(link => {
   link.addEventListener('click', function () {
     navMenu?.classList.remove('active');
   });
 });
 
-// Add scroll effect to navbar
+// Navbar scroll state — class toggled here, shadow defined in CSS (.navbar.scrolled)
+let isScrolled = false;
 window.addEventListener('scroll', function () {
-  const navbar = document.querySelector('.navbar');
-  if (window.scrollY > 10) {
-    navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
-  } else {
-    navbar.style.boxShadow = 'none';
-  }
+  const shouldBeScrolled = window.scrollY > 10;
+  if (shouldBeScrolled === isScrolled) return;
+  isScrolled = shouldBeScrolled;
+  navbar.classList.toggle('scrolled', isScrolled);
 });
 
-// Lazy load images (if added later)
-if ('IntersectionObserver' in window) {
-  const imageObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        img.src = img.dataset.src;
-        observer.unobserve(img);
-      }
-    });
-  });
-  
-  document.querySelectorAll('img[data-src]').forEach(img => imageObserver.observe(img));
-}
+// Dynamic copyright year
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
