@@ -3,220 +3,282 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Cristian Sanabria — Product Designer with 4+ years creating user-centric systems. Specialized in design leadership, product strategy, and AI-augmented workflows.">
-  <title>Cristian Sanabria - Product Designer</title>
+  <meta name="description" content="Cristian Sanabria — Senior Product Designer with 5 years of experience. Strategic design, AI-augmented workflows, and shipped digital products.">
+  <title>Cristian Sanabria — Senior Product Designer</title>
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/components.css">
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="nav-logo">
-        <a href="#home">Cristian Sanabria</a>
-      </div>
-      <ul class="nav-menu">
-        <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#work" class="nav-link">Work</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#contact" class="nav-link nav-link-cta">Let's work</a></li>
-      </ul>
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+
+  <!-- ============================================================
+       NAVIGATION — Floating pill
+       ============================================================ -->
+  <nav class="nav-pill" id="nav-pill" aria-label="Main navigation">
+    <a href="#home" class="nav-logo" aria-label="Cristian Sanabria — home">CS</a>
+
+    <ul class="nav-links" id="nav-links" role="list">
+      <li><a href="#home"  class="nav-link">Home</a></li>
+      <li><a href="#work"  class="nav-link">Work</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <span class="availability-badge" aria-label="Status: available for work">
+        <span class="availability-dot" aria-hidden="true"></span>
+        Available for work
+      </span>
+      <a href="mailto:crisanabria97@gmail.com" class="nav-talk">Let's talk</a>
     </div>
+
+    <!-- Mobile hamburger -->
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <div class="hero-text">
-        <h1>I design digital products that solve real problems</h1>
-        <p>Product Designer with 4+ years creating user-centric systems. Specialized in design leadership, product strategy, and AI-augmented workflows.</p>
-        <a href="#work" class="cta-button">View my work</a>
-      </div>
-      <div class="hero-image">
-        <div class="hero-image-placeholder"></div>
-      </div>
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section id="home" class="hero" aria-label="Introduction">
+
+    <span class="hero-label" aria-hidden="true">SENIOR PRODUCT DESIGNER</span>
+
+    <div class="hero-name">
+      <h1>
+        <span class="hero-line">Cristian</span>
+        <span class="hero-line">Sanabria</span>
+      </h1>
     </div>
-    <div class="hero-gradient"></div>
+
+    <div class="hero-pills" aria-label="Location and availability">
+      <span class="hero-pill">BOGOTÁ, COLOMBIA</span>
+      <span class="hero-pill">OPEN TO REMOTE</span>
+      <span class="hero-pill">USD / EUR</span>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <span>SCROLL</span>
+    </div>
+
   </section>
 
-  <!-- Work Section -->
-  <section id="work" class="work">
-    <div class="section-container">
-      <h2>Featured Work</h2>
-      <p class="section-subtitle">Selected projects from my time at Inlaze and as a freelance designer</p>
-      
-      <div class="projects-grid">
-        <!-- Project 1: Commizzion Account -->
-        <div class="project-card" data-project="commizzion-account">
-          <div class="project-image">
-            <div class="image-placeholder" style="background: linear-gradient(135deg, #C04C1A 0%, #D44A00 100%);"></div>
-          </div>
-          <div class="project-info">
-            <span class="project-tag">Inlaze</span>
-            <h3>Commizzion Account</h3>
-            <p class="project-meta">Design Lead | iGaming Platform | 2024-2025</p>
-            <p class="project-description">User-facing platform redesign for 500+ affiliates. Improved workflows and UX through research-driven approach.</p>
-            <div class="project-skills">
-              <span class="skill-tag">Design Lead</span>
-              <span class="skill-tag">User Research</span>
-              <span class="skill-tag">iGaming</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 2: Commizzion Backoffice -->
-        <div class="project-card" data-project="commizzion-backoffice">
-          <div class="project-image">
-            <div class="image-placeholder" style="background: linear-gradient(135deg, #C04C1A 0%, #D44A00 100%);"></div>
-          </div>
-          <div class="project-info">
-            <span class="project-tag">Inlaze</span>
-            <h3>Commizzion Backoffice</h3>
-            <p class="project-meta">Design Lead | Admin Platform | 2024-2025</p>
-            <p class="project-description">Administrative system handling complex workflows, data visualization, and platform control.</p>
-            <div class="project-skills">
-              <span class="skill-tag">Backoffice</span>
-              <span class="skill-tag">Data Visualization</span>
-              <span class="skill-tag">Design System</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 3: Gannar Casino -->
-        <div class="project-card" data-project="gannar">
-          <div class="project-image">
-            <div class="image-placeholder" style="background: linear-gradient(135deg, #D44A00 0%, #E85D24 100%);"></div>
-          </div>
-          <div class="project-info">
-            <span class="project-tag">Inlaze</span>
-            <h3>Gannar Casino MVP</h3>
-            <p class="project-meta">Product Designer | AI-First Workflow | 2024-2025</p>
-            <p class="project-description">Casino platform MVP delivered to production. Implemented AI-augmented design workflow using Claude + Figma automation.</p>
-            <div class="project-skills">
-              <span class="skill-tag">AI Workflow</span>
-              <span class="skill-tag">MVP</span>
-              <span class="skill-tag">Production</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 4: The Rodriguez Project -->
-        <div class="project-card" data-project="rodriguez">
-          <div class="project-image">
-            <div class="image-placeholder" style="background: linear-gradient(135deg, #333 0%, #555 100%);"></div>
-          </div>
-          <div class="project-info">
-            <span class="project-tag">Freelance</span>
-            <h3>The Rodriguez Project</h3>
-            <p class="project-meta">Freelance Designer | E-Commerce | 2024</p>
-            <p class="project-description">Web redesign for clothing brand. Optimized conversion flow and mobile experience with measurable results.</p>
-            <div class="project-skills">
-              <span class="skill-tag">E-Commerce</span>
-              <span class="skill-tag">Metrics</span>
-              <span class="skill-tag">Conversion</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 5: Art Studio -->
-        <div class="project-card" data-project="art-studio">
-          <div class="project-image">
-            <div class="image-placeholder" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
-          </div>
-          <div class="project-info">
-            <span class="project-tag">Personal</span>
-            <h3>Art Studio App</h3>
-            <p class="project-meta">Product Design | Interaction Design | 2024</p>
-            <p class="project-description">Exploration of interaction patterns and product design principles. Full UI/UX from concept to implementation.</p>
-            <div class="project-skills">
-              <span class="skill-tag">Interaction</span>
-              <span class="skill-tag">Product Design</span>
-              <span class="skill-tag">Full UI</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="about">
-    <div class="section-container">
-      <h2>About</h2>
-      <div class="about-content">
-        <div class="about-text">
-          <p>I'm a Product Designer based in Bogotá, Colombia with 4+ years of experience creating digital products that matter. My background spans systemic design thinking, design leadership, and user-centered research methodologies.</p>
-          <p>At Inlaze, I've led design across multiple iGaming products, from user-facing platforms to complex administrative systems. I'm passionate about solving intricate problems through research, iteration, and cross-functional collaboration.</p>
-          <p>Beyond traditional design, I explore how AI and automation can enhance the design process itself—combining tools like Claude and Figma automation to deliver products faster without compromising quality.</p>
-        </div>
-        <div class="skills-grid">
-          <div class="skills-column">
-            <h4>Design</h4>
-            <ul>
-              <li>Product Design</li>
-              <li>Design Systems</li>
-              <li>UX Research</li>
-              <li>Usability Testing</li>
-            </ul>
-          </div>
-          <div class="skills-column">
-            <h4>Leadership</h4>
-            <ul>
-              <li>Design Lead</li>
-              <li>Team Mentoring</li>
-              <li>Design Strategy</li>
-              <li>Cross-functional Work</li>
-            </ul>
-          </div>
-          <div class="skills-column">
-            <h4>Technical</h4>
-            <ul>
-              <li>Figma</li>
-              <li>Adobe Creative Suite</li>
-              <li>AI Workflows</li>
-              <li>Data Visualization</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <div class="section-container">
-      <h2>Let's work together</h2>
-      <p>I'm interested in roles focused on product design, design leadership, and innovative approaches to digital products.</p>
-      <div class="contact-links">
-        <a href="mailto:crisanabria97@gmail.com" class="contact-button">Send me an email</a>
-        <a href="https://www.linkedin.com/in/cristian-sanabria97/" target="_blank" rel="noopener noreferrer" class="contact-button contact-button-secondary">Visit my LinkedIn</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="section-container">
-      <p>&copy; <span id="copyright-year"></span> Cristian Sanabria. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- Project Modal -->
-  <div id="projectModal" class="project-modal">
-    <div class="modal-content">
-      <button class="modal-close">&times;</button>
-      <div class="modal-body">
-        <h3 id="modalTitle"></h3>
-        <p id="modalDescription"></p>
-        <div id="modalDetails"></div>
-      </div>
+  <!-- ============================================================
+       TICKER
+       ============================================================ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-text">STRATEGIC DESIGN ✦ AI-AUGMENTED WORKFLOWS ✦ DESIGN SYSTEMS ✦ iGAMING ✦ PRODUCT STRATEGY ✦ 0→1 PRODUCTS ✦ AFFILIATE PLATFORMS ✦ &nbsp;</span>
+      <span class="ticker-text">STRATEGIC DESIGN ✦ AI-AUGMENTED WORKFLOWS ✦ DESIGN SYSTEMS ✦ iGAMING ✦ PRODUCT STRATEGY ✦ 0→1 PRODUCTS ✦ AFFILIATE PLATFORMS ✦ &nbsp;</span>
+      <span class="ticker-text">STRATEGIC DESIGN ✦ AI-AUGMENTED WORKFLOWS ✦ DESIGN SYSTEMS ✦ iGAMING ✦ PRODUCT STRATEGY ✦ 0→1 PRODUCTS ✦ AFFILIATE PLATFORMS ✦ &nbsp;</span>
     </div>
   </div>
+
+  <!-- ============================================================
+       WORK SECTION
+       ============================================================ -->
+  <section id="work" class="work-section" aria-labelledby="work-title">
+    <div class="section-header">
+      <span class="section-label">SELECTED PROJECTS</span>
+      <h2 class="section-title" id="work-title">Work</h2>
+      <div class="section-divider" role="separator"></div>
+    </div>
+
+    <!-- Card 01 -->
+    <article class="project-card" aria-label="Project 01 — Rodriguez">
+      <div class="card-left">
+        <div class="card-meta-row">
+          <span class="card-number">01</span>
+          <span class="card-company">Freelance / 2026</span>
+        </div>
+        <h3 class="card-headline">Turning an incomplete website into a brand's first real sales channel</h3>
+        <div class="card-tags">
+          <span class="card-tag">E-COMMERCE</span>
+          <span class="card-tag">REDESIGN</span>
+        </div>
+        <div class="card-metrics">
+          <div class="metric">
+            <span class="metric-number">+43%</span>
+            <span class="metric-label">Sessions growth</span>
+          </div>
+          <div class="metric">
+            <span class="metric-number">1st</span>
+            <span class="metric-label">Sale post-launch</span>
+          </div>
+        </div>
+        <a href="cases/rodriguez.html" class="card-arrow" aria-label="View project Rodriguez">↗</a>
+      </div>
+      <div class="card-right">
+        <div class="card-image-placeholder" aria-hidden="true"></div>
+      </div>
+    </article>
+
+    <!-- Card 02 -->
+    <article class="project-card" aria-label="Project 02 — Gannar">
+      <div class="card-left">
+        <div class="card-meta-row">
+          <span class="card-number">02</span>
+          <span class="card-company">Inlaze / 2026</span>
+        </div>
+        <h3 class="card-headline">Zero to production MVP in 14 days using an AI-augmented design workflow</h3>
+        <div class="card-tags">
+          <span class="card-tag">0→1 PRODUCT</span>
+          <span class="card-tag">AI WORKFLOW</span>
+        </div>
+        <div class="card-metrics">
+          <div class="metric">
+            <span class="metric-number">14 days</span>
+            <span class="metric-label">Time to MVP</span>
+          </div>
+          <div class="metric">
+            <span class="metric-number">2</span>
+            <span class="metric-label">Platforms delivered</span>
+          </div>
+        </div>
+        <a href="cases/gannar.html" class="card-arrow" aria-label="View project Gannar">↗</a>
+      </div>
+      <div class="card-right">
+        <div class="card-image-placeholder" aria-hidden="true"></div>
+      </div>
+    </article>
+
+    <!-- Card 03 -->
+    <article class="project-card" aria-label="Project 03 — Commizzion Account">
+      <div class="card-left">
+        <div class="card-meta-row">
+          <span class="card-number">03</span>
+          <span class="card-company">Inlaze / 2024–2025</span>
+        </div>
+        <h3 class="card-headline">Designing an affiliate platform from design system to shipped product</h3>
+        <div class="card-tags">
+          <span class="card-tag">PLATFORM</span>
+          <span class="card-tag">DESIGN SYSTEM</span>
+        </div>
+        <div class="card-metrics">
+          <div class="metric">
+            <span class="metric-number">3×</span>
+            <span class="metric-label">Affiliates post-launch</span>
+          </div>
+          <div class="metric">
+            <span class="metric-number">75%</span>
+            <span class="metric-label">Support tickets reduced</span>
+          </div>
+        </div>
+        <a href="cases/commizzion-account.html" class="card-arrow" aria-label="View project Commizzion Account">↗</a>
+      </div>
+      <div class="card-right">
+        <div class="card-image-placeholder" aria-hidden="true"></div>
+      </div>
+    </article>
+
+    <!-- Card 04 -->
+    <article class="project-card" aria-label="Project 04 — Commizzion Backoffice">
+      <div class="card-left">
+        <div class="card-meta-row">
+          <span class="card-number">04</span>
+          <span class="card-company">Inlaze / 2025–2026</span>
+        </div>
+        <h3 class="card-headline">A complete redesign that made a complex admin platform actually work</h3>
+        <div class="card-tags">
+          <span class="card-tag">ADMIN PLATFORM</span>
+          <span class="card-tag">REDESIGN</span>
+        </div>
+        <div class="card-metrics">
+          <div class="metric">
+            <span class="metric-number">2→10</span>
+            <span class="metric-label">Admin users</span>
+          </div>
+          <div class="metric">
+            <span class="metric-number">5 min</span>
+            <span class="metric-label">vs 2h+ per change</span>
+          </div>
+        </div>
+        <a href="cases/commizzion-backoffice.html" class="card-arrow" aria-label="View project Commizzion Backoffice">↗</a>
+      </div>
+      <div class="card-right">
+        <div class="card-image-placeholder" aria-hidden="true"></div>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ============================================================
+       ABOUT SECTION
+       ============================================================ -->
+  <section id="about" class="about-section" aria-labelledby="about-title">
+    <div class="about-inner">
+
+      <div class="section-header">
+        <span class="section-label">MY STORY</span>
+        <h2 class="section-title" id="about-title">About</h2>
+      </div>
+
+      <div class="about-grid">
+        <!-- Left: bio -->
+        <div class="about-bio">
+          <p>I'm a product designer with 5 years of experience, from early freelance work to leading design on complex digital products.</p>
+          <p>I work across the full scope — research, systems, and shipped product. I've integrated AI into my workflow not as a gimmick, but as a way to move faster without cutting corners on quality.</p>
+          <p>Currently based in Bogotá, open to remote roles in USD or EUR.</p>
+          <a href="#" class="cv-link">VIEW CV ↗</a>
+        </div>
+
+        <!-- Right: experience -->
+        <div class="about-experience">
+          <span class="section-label" style="margin-bottom: var(--space-3); display: block;">EXPERIENCE</span>
+          <ul class="experience-list" role="list">
+            <li class="experience-item">
+              <div>
+                <span class="exp-company">Inlaze</span>
+                <span class="exp-role">Design Lead</span>
+              </div>
+              <span class="exp-years">2024–2026</span>
+            </li>
+            <li class="experience-item">
+              <div>
+                <span class="exp-company">Freelance</span>
+                <span class="exp-role">Product Designer</span>
+              </div>
+              <span class="exp-years">2023–2024</span>
+            </li>
+            <li class="experience-item">
+              <div>
+                <span class="exp-company">Inlaze</span>
+                <span class="exp-role">Product Designer</span>
+              </div>
+              <span class="exp-years">2022–2023</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT SECTION
+       ============================================================ -->
+  <section id="contact" class="contact-section" aria-labelledby="contact-title">
+    <div class="contact-inner">
+      <span class="section-label">GET IN TOUCH</span>
+      <div class="contact-display">
+        <span class="contact-line" id="contact-title">Let's</span>
+        <a href="mailto:crisanabria97@gmail.com" class="contact-line contact-line-link">work together ↗</a>
+      </div>
+      <div class="contact-bottom">
+        <span class="contact-email">crisanabria97@gmail.com</span>
+        <a href="https://www.linkedin.com/in/cristian-sanabria97/" target="_blank" rel="noopener noreferrer" class="contact-linkedin">LINKEDIN ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <span class="footer-copy">© 2026 Cristian Sanabria</span>
+    <span class="footer-role">Senior Product Designer</span>
+  </footer>
 
   <script src="scripts/main.js"></script>
 </body>
