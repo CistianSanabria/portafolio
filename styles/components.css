@@ -31,12 +31,9 @@ section {
   background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: 100px;
-  box-shadow: 0 1px 0 0 var(--color-border), 0 4px 24px rgba(0,0,0,0.06);
+  box-shadow: 0 1px 0 0 var(--color-border), 0 4px 24px rgba(0, 0, 0, 0.06);
 
-  /* smooth shadow on scroll — added via JS */
   transition: box-shadow 0.3s ease;
-
-  /* prevent it from being wider than the viewport on small screens */
   max-width: calc(100vw - 32px);
 }
 
@@ -84,40 +81,10 @@ section {
   flex-shrink: 0;
 }
 
-/* Availability badge */
-.availability-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: #F0FAF4;
-  color: #1A7A3C;
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: 12px;
-  padding: 4px 12px;
-  border-radius: 100px;
-  white-space: nowrap;
-}
-
-.availability-dot {
-  width: 8px;
-  height: 8px;
-  background: #1A7A3C;
-  border-radius: 50%;
-  flex-shrink: 0;
-  /* subtle pulse */
-  animation: pulse-dot 2.4s ease-in-out infinite;
-}
-
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.4; }
-}
-
-/* "Let's talk" link */
+/* FIX 7 — "Let's talk" Satoshi Regular 400, not bold */
 .nav-talk {
   font-family: var(--font-body);
-  font-weight: 500;
+  font-weight: 400;
   font-size: 14px;
   color: var(--color-text);
   text-decoration: none;
@@ -127,6 +94,28 @@ section {
 
 .nav-talk:hover {
   color: var(--color-accent);
+}
+
+/* Availability badge (kept for hero use) */
+.availability-dot {
+  width: 8px;
+  height: 8px;
+  background: #1A7A3C;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: pulse-dot 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
 }
 
 /* Hamburger (hidden desktop) */
@@ -151,18 +140,24 @@ section {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Force hamburger lines to always use --color-text (never accent) */
 .hamburger:focus span,
 .hamburger:hover span {
   background: var(--color-text);
 }
 
-/* Hamburger → X */
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
 
-/* ─── Mobile nav (<768px) ─────────────────────────────────── */
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile nav (<768px) */
 @media (max-width: 768px) {
   .nav-pill {
     top: 0;
@@ -175,12 +170,10 @@ section {
     padding: 0 20px;
     gap: 0;
     justify-content: space-between;
-    /* allow dropdown to sit below */
     overflow: visible;
   }
 
   .nav-links {
-    /* hidden by default; toggled to block by JS */
     display: none;
     flex-direction: column;
     position: absolute;
@@ -229,7 +222,7 @@ section {
   background: var(--color-bg);
 }
 
-/* "SENIOR PRODUCT DESIGNER" label — top-left */
+/* "SENIOR PRODUCT DESIGNER" label */
 .hero-label {
   position: absolute;
   top: 140px;
@@ -243,10 +236,6 @@ section {
 }
 
 /* Main name */
-.hero-name {
-  /* sits at flex baseline (bottom) */
-}
-
 .hero-name h1 {
   font-family: var(--font-display);
   font-weight: 900;
@@ -285,7 +274,6 @@ section {
   white-space: nowrap;
 }
 
-/* Available for work — green pill in hero */
 .hero-pill--available {
   background: #F0FAF4;
   color: #1A7A3C;
@@ -293,7 +281,7 @@ section {
   gap: 7px;
 }
 
-/* "SCROLL" vertical text — right side */
+/* "SCROLL" vertical text */
 .hero-scroll {
   position: absolute;
   right: -10px;
@@ -310,7 +298,7 @@ section {
   color: var(--color-text-muted);
 }
 
-/* ─── Hero mobile ─────────────────────────────────────────── */
+/* FIX 1 — Hero mobile: name fits, pills below name */
 @media (max-width: 768px) {
   .hero {
     padding-left: var(--space-3);
@@ -329,11 +317,11 @@ section {
     font-size: 10px;
   }
 
+  /* Reduced from 52px/14vw — fits 375px without clipping */
   .hero-name h1 {
-    font-size: clamp(52px, 14vw, 80px);
+    font-size: clamp(44px, 11vw, 72px);
   }
 
-  /* Pills: static below the name, no overlap */
   .hero-pills {
     position: static;
     align-items: flex-start;
@@ -378,8 +366,13 @@ section {
 }
 
 @keyframes ticker-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-33.333%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-33.333%);
+  }
 }
 
 /* =============================================================
@@ -390,7 +383,6 @@ section {
   padding: var(--space-12) 0 0;
 }
 
-/* Section header */
 .section-header {
   padding: 0 var(--space-8);
   margin-bottom: var(--space-6);
@@ -414,6 +406,8 @@ section {
   color: var(--color-text);
   line-height: 1;
   margin: 0 0 var(--space-3);
+  /* FIX 6 — always left aligned */
+  text-align: left;
 }
 
 .section-divider {
@@ -423,8 +417,7 @@ section {
   margin-top: var(--space-3);
 }
 
-/* ─── Project cards ─────────────────────────────────────────── */
-
+/* Project cards */
 .project-card {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -438,12 +431,10 @@ section {
   background: var(--color-surface);
 }
 
-/* Hover → arrow rotates */
 .project-card:hover .card-arrow {
   transform: rotate(-45deg);
 }
 
-/* Left column */
 .card-left {
   padding: var(--space-8);
   display: flex;
@@ -458,13 +449,7 @@ section {
   gap: 16px;
 }
 
-.card-number {
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: 13px;
-  color: var(--color-text-muted);
-}
-
+.card-number,
 .card-company {
   font-family: var(--font-body);
   font-weight: 400;
@@ -501,7 +486,6 @@ section {
   letter-spacing: 0.04em;
 }
 
-/* Metrics row */
 .card-metrics {
   display: flex;
   gap: 40px;
@@ -531,7 +515,6 @@ section {
   line-height: 1.4;
 }
 
-/* Arrow — bottom-right of card-left */
 .card-arrow {
   position: absolute;
   bottom: var(--space-8);
@@ -548,7 +531,6 @@ section {
   color: var(--color-text);
 }
 
-/* Right column — image placeholder */
 .card-right {
   border-left: 1px solid var(--color-border);
 }
@@ -560,7 +542,7 @@ section {
   background: var(--color-surface);
 }
 
-/* ─── Cards mobile ──────────────────────────────────────────── */
+/* FIX 5 + mobile cards */
 @media (max-width: 768px) {
   .section-header {
     padding: 0 var(--space-3);
@@ -581,8 +563,9 @@ section {
     border-top: 1px solid var(--color-border);
   }
 
+  /* FIX 5 — reduced image placeholder height on mobile */
   .card-image-placeholder {
-    min-height: 220px;
+    min-height: 160px;
   }
 
   .card-arrow {
@@ -607,6 +590,11 @@ section {
   padding: 0 var(--space-8);
 }
 
+/* FIX 6 — title left aligned */
+.about-section .section-title {
+  text-align: left;
+}
+
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -615,7 +603,6 @@ section {
   align-items: start;
 }
 
-/* Bio */
 .about-bio {
   max-width: 520px;
 }
@@ -654,6 +641,7 @@ section {
   margin: 0;
 }
 
+/* FIX 4 — experience items wrap correctly on mobile */
 .experience-item {
   display: flex;
   justify-content: space-between;
@@ -661,6 +649,7 @@ section {
   padding: var(--space-2) 0;
   border-bottom: 1px solid var(--color-border);
   gap: 16px;
+  flex-wrap: wrap;
 }
 
 .exp-company {
@@ -689,7 +678,7 @@ section {
   flex-shrink: 0;
 }
 
-/* ─── About mobile ──────────────────────────────────────────── */
+/* About mobile */
 @media (max-width: 768px) {
   .about-inner {
     padding: 0 var(--space-3);
@@ -706,6 +695,16 @@ section {
 
   .about-bio p {
     font-size: 16px;
+  }
+
+  /* FIX 4 — years visible on mobile: stack below name */
+  .experience-item {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .exp-years {
+    font-size: 12px;
   }
 }
 
@@ -775,16 +774,23 @@ section {
   color: var(--color-text);
 }
 
-/* ─── Contact mobile ──────────────────────────────────────────── */
+/* FIX 2 — Contact mobile: texto más pequeño, flecha inline */
 @media (max-width: 768px) {
   .contact-inner {
     padding: 0 var(--space-3);
+  }
+
+  /* Scale down so "work together ↗" fits in one or two lines max */
+  .contact-line {
+    font-size: clamp(40px, 10vw, 64px);
+    line-height: 1.05;
   }
 
   .contact-bottom {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+    margin-top: var(--space-4);
   }
 }
 
@@ -809,6 +815,7 @@ section {
   color: var(--color-text-muted);
 }
 
+/* FIX 8 — Footer mobile left aligned */
 @media (max-width: 768px) {
   .site-footer {
     padding: var(--space-3);
@@ -819,7 +826,7 @@ section {
 }
 
 /* =============================================================
-   SKILLS SECTION (inside about right column)
+   SKILLS SECTION
    ============================================================= */
 
 .skills-label {
