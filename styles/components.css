@@ -851,3 +851,48 @@ section {
   color: var(--color-text-muted);
   white-space: nowrap;
 }
+/* =============================================================
+   TABLET BREAKPOINT (769px - 1024px)
+   ============================================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .hero {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+    padding-bottom: 64px;
+  }
+
+  .hero-label {
+    left: var(--space-6);
+  }
+
+  .hero-name h1 {
+    font-size: clamp(64px, 8vw, 100px);
+  }
+
+  .hero-pills {
+    bottom: 64px;
+    right: var(--space-6);
+  }
+
+  .section-header {
+    padding: 0 var(--space-6);
+  }
+
+  .card-left {
+    padding: var(--space-6);
+  }
+
+  .about-inner {
+    padding: 0 var(--space-6);
+  }
+
+  .contact-inner {
+    padding: 0 var(--space-6);
+  }
+
+  .site-footer {
+    padding: var(--space-3) var(--space-6);
+  }
+}
