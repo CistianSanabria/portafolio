@@ -28,9 +28,10 @@ section {
   height: 52px;
   padding: 0 24px;
 
-  background: #ffffff;
+  background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: 100px;
+  box-shadow: 0 1px 0 0 var(--color-border), 0 4px 24px rgba(0,0,0,0.06);
 
   /* smooth shadow on scroll — added via JS */
   transition: box-shadow 0.3s ease;
@@ -40,7 +41,7 @@ section {
 }
 
 .nav-pill.scrolled {
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 0 0 var(--color-border), 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 /* Logo */
@@ -150,6 +151,12 @@ section {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+/* Force hamburger lines to always use --color-text (never accent) */
+.hamburger:focus span,
+.hamburger:hover span {
+  background: var(--color-text);
+}
+
 /* Hamburger → X */
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
@@ -180,7 +187,7 @@ section {
     top: 52px;
     left: 0;
     right: 0;
-    background: #ffffff;
+    background: var(--color-bg);
     border-bottom: 1px solid var(--color-border);
     padding: 16px 20px 20px;
     gap: 16px;
@@ -265,15 +272,25 @@ section {
 }
 
 .hero-pill {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   border: 1px solid var(--color-border);
   border-radius: 100px;
-  padding: 6px 16px;
+  padding: 4px 12px;
   font-family: var(--font-body);
   font-weight: 400;
   font-size: 12px;
   letter-spacing: 0.06em;
   color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* Available for work — green pill in hero */
+.hero-pill--available {
+  background: #F0FAF4;
+  color: #1A7A3C;
+  border-color: rgba(26, 122, 60, 0.25);
+  gap: 7px;
 }
 
 /* "SCROLL" vertical text — right side */
@@ -301,6 +318,9 @@ section {
     padding-top: 100px;
     height: auto;
     min-height: 100svh;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-bottom: var(--space-8);
   }
 
   .hero-label {
@@ -310,12 +330,17 @@ section {
   }
 
   .hero-name h1 {
-    font-size: clamp(64px, 16vw, 100px);
+    font-size: clamp(52px, 14vw, 80px);
   }
 
+  /* Pills: static below the name, no overlap */
   .hero-pills {
-    right: var(--space-3);
-    bottom: 60px;
+    position: static;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: var(--space-3);
+    bottom: auto;
+    right: auto;
   }
 
   .hero-scroll {
@@ -346,7 +371,7 @@ section {
   font-family: var(--font-body);
   font-weight: 400;
   font-size: 11px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   color: var(--color-text-muted);
   white-space: nowrap;
   text-transform: uppercase;
@@ -788,7 +813,42 @@ section {
   .site-footer {
     padding: var(--space-3);
     flex-direction: column;
-    gap: 6px;
-    text-align: center;
+    align-items: flex-start;
+    gap: var(--space-1);
   }
+}
+
+/* =============================================================
+   SKILLS SECTION (inside about right column)
+   ============================================================= */
+
+.skills-label {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-3);
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
 }
