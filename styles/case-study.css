@@ -1,4 +1,480 @@
-/* =============================================================
-   CASE STUDY STYLES
-   (reserved for individual case study pages)
-   ============================================================= */
+/* ============================================================
+   CASE STUDY — styles/case-study.css
+   Portafolio Cristian Sanabria
+   Hito 3 — Mayo 2026
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   HEADER MÍNIMO
+   ------------------------------------------------------------ */
+.cs-header {
+   position: sticky;
+   top: 0;
+   z-index: 100;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: var(--space-3) var(--space-6);
+   background-color: var(--color-bg);
+   border-bottom: 1px solid var(--color-border);
+}
+
+.cs-logo img {
+   display: block;
+   width: 32px;
+   height: 32px;
+}
+
+.cs-back {
+   display: flex;
+   align-items: center;
+   gap: var(--space-1);
+   font-family: var(--font-body);
+   font-size: 0.875rem;
+   font-weight: 500;
+   color: var(--color-text-muted);
+   text-decoration: none;
+   transition: color 0.2s ease;
+}
+
+.cs-back:hover {
+   color: var(--color-text);
+}
+
+/* ------------------------------------------------------------
+   MAIN WRAPPER
+   ------------------------------------------------------------ */
+.cs-main {
+   max-width: 1200px;
+   margin: 0 auto;
+}
+
+/* ------------------------------------------------------------
+   LABEL REUTILIZABLE
+   ------------------------------------------------------------ */
+.cs-label {
+   display: block;
+   font-family: var(--font-body);
+   font-size: 0.6875rem;
+   font-weight: 700;
+   letter-spacing: 0.12em;
+   text-transform: uppercase;
+   color: var(--color-text-muted);
+   margin-bottom: var(--space-4);
+}
+
+/* ------------------------------------------------------------
+   BLOQUE 1 — HERO
+   ------------------------------------------------------------ */
+.cs-hero {
+   padding: var(--space-12) var(--space-6) 0;
+}
+
+.cs-hero__meta {
+   display: flex;
+   gap: var(--space-8);
+   margin-bottom: var(--space-6);
+   flex-wrap: wrap;
+}
+
+.cs-meta-item {
+   display: flex;
+   flex-direction: column;
+   gap: 4px;
+}
+
+.cs-meta-label {
+   font-family: var(--font-body);
+   font-size: 0.6875rem;
+   font-weight: 700;
+   letter-spacing: 0.1em;
+   text-transform: uppercase;
+   color: var(--color-text-muted);
+}
+
+.cs-meta-value {
+   font-family: var(--font-body);
+   font-size: 0.9375rem;
+   font-weight: 500;
+   color: var(--color-text);
+}
+
+.cs-hero__headline {
+   font-family: var(--font-display);
+   font-size: clamp(2rem, 4.5vw, 3.5rem);
+   font-weight: 800;
+   line-height: 1.1;
+   color: var(--color-text);
+   max-width: 16ch;
+   margin-bottom: var(--space-8);
+}
+
+/* Hero image — efecto cine (full-width con padding lateral) */
+.cs-hero__image-wrap {
+   width: 100%;
+   padding: 0 var(--space-6);
+   margin: 0 calc(-1 * var(--space-6));
+   box-sizing: content-box;
+}
+
+.cs-hero__image {
+   width: 100%;
+   height: auto;
+   display: block;
+   border-radius: 4px;
+   object-fit: cover;
+}
+
+/* ------------------------------------------------------------
+   BLOQUE 2 — OVERVIEW
+   ------------------------------------------------------------ */
+.cs-overview {
+   padding: var(--space-16) var(--space-6);
+   border-top: 1px solid var(--color-border);
+}
+
+.cs-overview__inner {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: var(--space-12);
+   align-items: start;
+}
+
+.cs-overview__text {
+   font-family: var(--font-body);
+   font-size: 1.125rem;
+   font-weight: 400;
+   line-height: 1.6;
+   color: var(--color-text);
+   max-width: 52ch;
+}
+
+.cs-overview__metrics {
+   display: flex;
+   flex-direction: column;
+   gap: var(--space-6);
+}
+
+.cs-metric {
+   display: flex;
+   flex-direction: column;
+   gap: 6px;
+}
+
+.cs-metric__value {
+   font-family: var(--font-display);
+   font-size: 2.5rem;
+   font-weight: 800;
+   line-height: 1;
+   color: var(--color-accent);
+}
+
+.cs-metric__label {
+   font-family: var(--font-body);
+   font-size: 0.875rem;
+   font-weight: 400;
+   color: var(--color-text-muted);
+   line-height: 1.4;
+}
+
+/* ------------------------------------------------------------
+   BLOQUE 3 — PROCESS
+   ------------------------------------------------------------ */
+.cs-process {
+   padding: var(--space-16) var(--space-6);
+   border-top: 1px solid var(--color-border);
+}
+
+.cs-process__inner {
+   display: flex;
+   flex-direction: column;
+   gap: var(--space-16);
+}
+
+.cs-decision {
+   display: flex;
+   flex-direction: column;
+   gap: var(--space-4);
+}
+
+.cs-decision__header {
+   display: flex;
+   align-items: baseline;
+   gap: var(--space-3);
+}
+
+.cs-decision__number {
+   font-family: var(--font-display);
+   font-size: 0.875rem;
+   font-weight: 800;
+   color: var(--color-accent);
+   letter-spacing: 0.05em;
+}
+
+.cs-decision__title {
+   font-family: var(--font-display);
+   font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+   font-weight: 800;
+   line-height: 1.15;
+   color: var(--color-text);
+}
+
+.cs-decision__body {
+   font-family: var(--font-body);
+   font-size: 1rem;
+   font-weight: 400;
+   line-height: 1.65;
+   color: var(--color-text-muted);
+   max-width: 64ch;
+}
+
+/* Imagen del proceso — full-width con caption encima */
+.cs-decision__image-wrap {
+   display: flex;
+   flex-direction: column;
+   gap: var(--space-2);
+   margin-top: var(--space-2);
+}
+
+.cs-caption {
+   font-family: var(--font-body);
+   font-size: 0.75rem;
+   font-weight: 500;
+   letter-spacing: 0.06em;
+   text-transform: uppercase;
+   color: var(--color-text-muted);
+}
+
+.cs-decision__image {
+   width: 100%;
+   height: auto;
+   display: block;
+   border-radius: 4px;
+   border: 1px solid var(--color-border);
+   object-fit: cover;
+}
+
+/* ------------------------------------------------------------
+   BLOQUE 4 — RESULTS
+   ------------------------------------------------------------ */
+.cs-results {
+   padding: var(--space-16) var(--space-6);
+   border-top: 1px solid var(--color-border);
+   background-color: var(--color-surface);
+}
+
+.cs-results__inner {
+   display: flex;
+   flex-direction: column;
+   gap: var(--space-12);
+}
+
+.cs-results__metrics {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: var(--space-8);
+}
+
+.cs-metric--large .cs-metric__value {
+   font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+.cs-metric--large .cs-metric__label {
+   font-size: 0.9375rem;
+}
+
+/* Mobile comparison side by side */
+.cs-results__mobile {
+   width: 100%;
+}
+
+.cs-mobile-compare {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: var(--space-4);
+}
+
+.cs-mobile-compare__item {
+   display: flex;
+   flex-direction: column;
+   gap: var(--space-2);
+}
+
+.cs-mobile-compare__image {
+   width: 100%;
+   height: auto;
+   display: block;
+   border-radius: 4px;
+   border: 1px solid var(--color-border);
+   object-fit: cover;
+}
+
+/* Key learning */
+.cs-results__learning {
+   padding-top: var(--space-8);
+   border-top: 1px solid var(--color-border);
+}
+
+.cs-learning__text {
+   font-family: var(--font-display);
+   font-size: clamp(1.125rem, 2vw, 1.5rem);
+   font-weight: 800;
+   line-height: 1.3;
+   color: var(--color-text);
+   max-width: 48ch;
+}
+
+/* ------------------------------------------------------------
+   NAVEGACIÓN SIGUIENTE CASE
+   ------------------------------------------------------------ */
+.cs-nav-next {
+   padding: var(--space-12) var(--space-6);
+   border-top: 1px solid var(--color-border);
+}
+
+.cs-next-link {
+   display: flex;
+   align-items: center;
+   gap: var(--space-4);
+   text-decoration: none;
+   padding: var(--space-6) 0;
+   border-bottom: 1px solid var(--color-border);
+   transition: gap 0.3s ease;
+}
+
+.cs-next-link:hover {
+   gap: var(--space-6);
+}
+
+.cs-next-link:hover svg {
+   color: var(--color-accent);
+}
+
+.cs-next-link__title {
+   font-family: var(--font-display);
+   font-size: clamp(1.5rem, 3vw, 2.5rem);
+   font-weight: 800;
+   color: var(--color-text);
+   flex: 1;
+}
+
+.cs-next-link__tags {
+   font-family: var(--font-body);
+   font-size: 0.875rem;
+   font-weight: 500;
+   color: var(--color-text-muted);
+}
+
+.cs-next-link svg {
+   flex-shrink: 0;
+   color: var(--color-text-muted);
+   transition: color 0.2s ease;
+}
+
+/* ------------------------------------------------------------
+   FOOTER
+   ------------------------------------------------------------ */
+.cs-footer {
+   padding: var(--space-6);
+   text-align: center;
+   font-family: var(--font-body);
+   font-size: 0.8125rem;
+   color: var(--color-text-muted);
+   border-top: 1px solid var(--color-border);
+}
+
+/* ============================================================
+   RESPONSIVE — TABLET (769px – 1024px)
+   ============================================================ */
+@media (min-width: 769px) and (max-width: 1024px) {
+   .cs-header {
+      padding: var(--space-3) var(--space-4);
+   }
+
+   .cs-hero {
+      padding: var(--space-8) var(--space-4) 0;
+   }
+
+   .cs-hero__meta {
+      gap: var(--space-6);
+   }
+
+   .cs-overview,
+   .cs-process,
+   .cs-results,
+   .cs-nav-next {
+      padding-left: var(--space-4);
+      padding-right: var(--space-4);
+   }
+
+   .cs-results__metrics {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+   }
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE (< 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+   .cs-header {
+      padding: var(--space-2) var(--space-3);
+   }
+
+   .cs-hero {
+      padding: var(--space-8) var(--space-3) 0;
+   }
+
+   .cs-hero__meta {
+      gap: var(--space-4);
+   }
+
+   .cs-hero__image-wrap {
+      padding: 0 var(--space-3);
+      margin: 0 calc(-1 * var(--space-3));
+   }
+
+   .cs-overview {
+      padding: var(--space-12) var(--space-3);
+   }
+
+   .cs-overview__inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+   }
+
+   .cs-process {
+      padding: var(--space-12) var(--space-3);
+   }
+
+   .cs-results {
+      padding: var(--space-12) var(--space-3);
+   }
+
+   .cs-results__metrics {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+   }
+
+   .cs-mobile-compare {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+   }
+
+   .cs-nav-next {
+      padding: var(--space-8) var(--space-3);
+   }
+
+   .cs-next-link {
+      flex-wrap: wrap;
+      gap: var(--space-3);
+   }
+
+   .cs-next-link__tags {
+      display: none;
+   }
+
+   .cs-footer {
+      padding: var(--space-4) var(--space-3);
+   }
+}
