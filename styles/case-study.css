@@ -1,7 +1,7 @@
 /* ============================================================
    CASE STUDY — styles/case-study.css
    Portafolio Cristian Sanabria
-   Hito 3 — Mayo 2026
+   Hito 3 — Mayo 2026 (v2 — fixes aplicados)
    ============================================================ */
 
 /* ------------------------------------------------------------
@@ -60,7 +60,7 @@
    letter-spacing: 0.12em;
    text-transform: uppercase;
    color: var(--color-text-muted);
-   margin-bottom: var(--space-4);
+   margin-bottom: var(--space-3);
 }
 
 /* ------------------------------------------------------------
@@ -70,6 +70,7 @@
    padding: var(--space-12) var(--space-6) 0;
 }
 
+/* FIX: meta en grid 2x2 en mobile, fila única en desktop */
 .cs-hero__meta {
    display: flex;
    gap: var(--space-8);
@@ -109,7 +110,7 @@
    margin-bottom: var(--space-8);
 }
 
-/* Hero image — efecto cine (full-width con padding lateral) */
+/* Hero image — efecto cine */
 .cs-hero__image-wrap {
    width: 100%;
    padding: 0 var(--space-6);
@@ -185,10 +186,11 @@
    border-top: 1px solid var(--color-border);
 }
 
+/* FIX: reducir gap entre label PROCESS y primera decisión */
 .cs-process__inner {
    display: flex;
    flex-direction: column;
-   gap: var(--space-16);
+   gap: var(--space-12);
 }
 
 .cs-decision {
@@ -209,6 +211,7 @@
    font-weight: 800;
    color: var(--color-accent);
    letter-spacing: 0.05em;
+   flex-shrink: 0;
 }
 
 .cs-decision__title {
@@ -228,12 +231,12 @@
    max-width: 64ch;
 }
 
-/* Imagen del proceso — full-width con caption encima */
+/* FIX: caption encima de imagen + max-height para imágenes largas */
 .cs-decision__image-wrap {
    display: flex;
    flex-direction: column;
    gap: var(--space-2);
-   margin-top: var(--space-2);
+   margin-top: var(--space-3);
 }
 
 .cs-caption {
@@ -243,22 +246,28 @@
    letter-spacing: 0.06em;
    text-transform: uppercase;
    color: var(--color-text-muted);
+   order: -1;
+   /* caption siempre encima */
 }
 
+/* FIX: max-height para imágenes de proceso muy largas */
 .cs-decision__image {
    width: 100%;
-   height: auto;
+   max-height: 720px;
    display: block;
    border-radius: 4px;
    border: 1px solid var(--color-border);
    object-fit: cover;
+   object-position: top;
 }
 
 /* ------------------------------------------------------------
    BLOQUE 4 — RESULTS
    ------------------------------------------------------------ */
+
+/* FIX: reducir padding superior de results */
 .cs-results {
-   padding: var(--space-16) var(--space-6);
+   padding: var(--space-12) var(--space-6) var(--space-16);
    border-top: 1px solid var(--color-border);
    background-color: var(--color-surface);
 }
@@ -326,6 +335,7 @@
 
 /* ------------------------------------------------------------
    NAVEGACIÓN SIGUIENTE CASE
+   FIX: estado visual en reposo más claro
    ------------------------------------------------------------ */
 .cs-nav-next {
    padding: var(--space-12) var(--space-6);
@@ -339,15 +349,27 @@
    text-decoration: none;
    padding: var(--space-6) 0;
    border-bottom: 1px solid var(--color-border);
-   transition: gap 0.3s ease;
+   transition: gap 0.3s ease, background-color 0.2s ease;
 }
 
 .cs-next-link:hover {
    gap: var(--space-6);
 }
 
+.cs-next-link:hover .cs-next-link__title {
+   text-decoration: underline;
+   text-underline-offset: 4px;
+}
+
 .cs-next-link:hover svg {
    color: var(--color-accent);
+   transform: translateX(4px);
+}
+
+.cs-next-link svg {
+   flex-shrink: 0;
+   color: var(--color-text-muted);
+   transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .cs-next-link__title {
@@ -363,12 +385,6 @@
    font-size: 0.875rem;
    font-weight: 500;
    color: var(--color-text-muted);
-}
-
-.cs-next-link svg {
-   flex-shrink: 0;
-   color: var(--color-text-muted);
-   transition: color 0.2s ease;
 }
 
 /* ------------------------------------------------------------
@@ -425,8 +441,11 @@
       padding: var(--space-8) var(--space-3) 0;
    }
 
+   /* FIX: meta en grid 2x2 en mobile */
    .cs-hero__meta {
-      gap: var(--space-4);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4) var(--space-6);
    }
 
    .cs-hero__image-wrap {
@@ -447,8 +466,13 @@
       padding: var(--space-12) var(--space-3);
    }
 
+   /* FIX: max-height más reducido en mobile */
+   .cs-decision__image {
+      max-height: 480px;
+   }
+
    .cs-results {
-      padding: var(--space-12) var(--space-3);
+      padding: var(--space-10) var(--space-3) var(--space-12);
    }
 
    .cs-results__metrics {
@@ -457,8 +481,8 @@
    }
 
    .cs-mobile-compare {
-      grid-template-columns: 1fr;
-      gap: var(--space-6);
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3);
    }
 
    .cs-nav-next {
