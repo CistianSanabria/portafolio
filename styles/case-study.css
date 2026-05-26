@@ -467,13 +467,20 @@
   .cs-overview__inner {
     grid-template-columns: 1fr;
     gap: var(--space-8);
-    width: 100%;
   }
   .cs-overview__text { max-width: 100%; }
   .cs-overview__metrics {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-4);
+  }
+  .cs-overview__metrics .cs-metric {
+    padding: 0;
+    border-left: none;
+  }
+  .cs-overview__metrics .cs-metric:first-child {
+    padding-left: 0;
+    border-left: none;
   }
 
   /* Process */
