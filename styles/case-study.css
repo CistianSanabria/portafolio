@@ -124,7 +124,7 @@
 }
 .cs-overview__inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: var(--space-12);
   align-items: center;
 }
@@ -281,7 +281,7 @@
    ------------------------------------------------------------ */
 .cs-process__images {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: var(--space-3);
   margin-top: var(--space-3);
 }
