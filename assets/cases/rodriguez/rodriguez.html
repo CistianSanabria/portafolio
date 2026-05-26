@@ -7,52 +7,63 @@
     <title>Rodriguez Project — Cristian Sanabria</title>
     <link rel="icon" type="image/svg+xml" href="../assets/FavIcon_CS_Black.svg" />
     <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/components.css" />
     <link rel="stylesheet" href="../styles/case-study.css" />
 </head>
 
 <body>
 
-    <!-- HEADER MÍNIMO -->
-    <header class="cs-header">
-        <a href="../index.html" class="cs-logo" aria-label="Back to home">
-            <img src="../assets/CS_Vector.svg" alt="Cristian Sanabria" width="32" height="32" />
+    <!-- NAV FLOTANTE — igual que homepage -->
+    <nav class="nav-pill" id="mainNav" aria-label="Main navigation">
+        <a href="../index.html" class="nav-logo" aria-label="Back to home">
+            <img src="../assets/CS_Vector.svg" alt="Cristian Sanabria" />
         </a>
-        <a href="../index.html" class="cs-back">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
-            </svg>
-            Back to work
-        </a>
-    </header>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="../index.html#work" class="nav-link">Work</a></li>
+            <li><a href="../index.html#about" class="nav-link">About</a></li>
+            <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+            <span class="availability-dot" aria-hidden="true"></span>
+            <a href="../index.html" class="nav-talk">← Back to work</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
 
     <main class="cs-main">
 
-        <!-- BLOQUE 1: HERO -->
-        <section class="cs-hero">
-            <div class="cs-hero__meta">
-                <div class="cs-meta-item">
-                    <span class="cs-meta-label">Company</span>
-                    <span class="cs-meta-value">Freelance</span>
-                </div>
-                <div class="cs-meta-item">
-                    <span class="cs-meta-label">Year</span>
-                    <span class="cs-meta-value">2026</span>
-                </div>
-                <div class="cs-meta-item">
-                    <span class="cs-meta-label">Type</span>
-                    <span class="cs-meta-value">E-Commerce · Redesign</span>
-                </div>
-                <div class="cs-meta-item">
-                    <span class="cs-meta-label">Role</span>
-                    <span class="cs-meta-value">Freelance Designer</span>
+        <!-- BLOQUE 0: COVER — hero estilo dvdrod -->
+        <section class="cs-cover">
+            <div class="cs-cover__bg"></div>
+            <div class="cs-cover__content">
+                <h1 class="cs-cover__headline">
+                    Turning an incomplete website into a brand's first real sales channel
+                </h1>
+                <div class="cs-cover__meta">
+                    <div class="cs-meta-item">
+                        <span class="cs-meta-label">Company</span>
+                        <span class="cs-meta-value">Freelance</span>
+                    </div>
+                    <div class="cs-meta-item">
+                        <span class="cs-meta-label">Year</span>
+                        <span class="cs-meta-value">2026</span>
+                    </div>
+                    <div class="cs-meta-item">
+                        <span class="cs-meta-label">Type</span>
+                        <span class="cs-meta-value">E-Commerce · Redesign</span>
+                    </div>
+                    <div class="cs-meta-item">
+                        <span class="cs-meta-label">Role</span>
+                        <span class="cs-meta-value">Freelance Designer</span>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <h1 class="cs-hero__headline">
-                Turning an incomplete website into a brand's first real sales channel
-            </h1>
-
+        <!-- BLOQUE 1: HERO IMAGE -->
+        <section class="cs-hero">
             <div class="cs-hero__image-wrap">
                 <img src="../assets/cases/rodriguez/hero.webp" alt="Rodriguez Project — Final homepage design"
                     class="cs-hero__image" loading="eager" />
@@ -70,7 +81,6 @@
                         that could generate real sales from day one.
                     </p>
                 </div>
-
                 <div class="cs-overview__metrics">
                     <div class="cs-metric">
                         <span class="cs-metric__value">+43%</span>
@@ -93,7 +103,7 @@
             <div class="cs-process__inner">
                 <span class="cs-label">Process</span>
 
-                <!-- Decisión 1 -->
+                <!-- Decisión 1 — desktop before + mobile before side by side -->
                 <div class="cs-decision">
                     <div class="cs-decision__header">
                         <span class="cs-decision__number">01</span>
@@ -105,9 +115,13 @@
                         using Rodriguez's identity as the structural axis — before touching the purchase flow.
                     </p>
                     <div class="cs-decision__image-wrap">
-                        <img src="../assets/cases/rodriguez/antes-01.webp" alt="Homepage before redesign"
-                            class="cs-decision__image" loading="lazy" />
-                        <span class="cs-caption">Homepage — before</span>
+                        <span class="cs-caption">Homepage — before (desktop + mobile)</span>
+                        <div class="cs-before-compare">
+                            <img src="../assets/cases/rodriguez/antes-01.webp" alt="Homepage desktop before redesign"
+                                class="cs-before-compare__desk" loading="lazy" />
+                            <img src="../assets/cases/rodriguez/mobile-antes.webp" alt="Homepage mobile before redesign"
+                                class="cs-before-compare__mobile" loading="lazy" />
+                        </div>
                     </div>
                 </div>
 
@@ -123,14 +137,14 @@
                         assumed functional until tested.
                     </p>
                     <div class="cs-decision__image-wrap">
+                        <span class="cs-caption">Full-page audit — before vs after</span>
                         <img src="../assets/cases/rodriguez/proceso-01.webp" alt="Full page audit comparison"
                             class="cs-decision__image" loading="lazy" />
-                        <span class="cs-caption">Full-page audit — before vs after</span>
                     </div>
                     <div class="cs-decision__image-wrap">
+                        <span class="cs-caption">Figma spec vs delivered result</span>
                         <img src="../assets/cases/rodriguez/proceso-02.webp" alt="Figma design vs final result"
                             class="cs-decision__image" loading="lazy" />
-                        <span class="cs-caption">Figma spec vs delivered result</span>
                     </div>
                 </div>
 
@@ -146,14 +160,14 @@
                         visual standard of larger e-commerce players.
                     </p>
                     <div class="cs-decision__image-wrap">
+                        <span class="cs-caption">Product page — before vs after</span>
                         <img src="../assets/cases/rodriguez/resultado-01.webp" alt="Product page before and after"
                             class="cs-decision__image" loading="lazy" />
-                        <span class="cs-caption">Product page — before vs after</span>
                     </div>
                     <div class="cs-decision__image-wrap">
+                        <span class="cs-caption">Collection + cart — before vs after</span>
                         <img src="../assets/cases/rodriguez/resultado-02.webp"
                             alt="Collection and cart before and after" class="cs-decision__image" loading="lazy" />
-                        <span class="cs-caption">Collection + cart — before vs after</span>
                     </div>
                 </div>
 
@@ -180,17 +194,25 @@
                     </div>
                 </div>
 
-                <div class="cs-results__mobile">
-                    <div class="cs-mobile-compare">
-                        <div class="cs-mobile-compare__item">
-                            <img src="../assets/cases/rodriguez/mobile-antes.webp" alt="Mobile experience before"
-                                class="cs-mobile-compare__image" loading="lazy" />
-                            <span class="cs-caption">Mobile — before</span>
+                <!-- Imagen final full width -->
+                <div class="cs-results__final">
+                    <span class="cs-caption">Final result — desktop</span>
+                    <img src="../assets/cases/rodriguez/resultado-final.webp"
+                        alt="Rodriguez Project — Final result desktop" class="cs-results__final-image" loading="lazy" />
+                </div>
+
+                <!-- Desktop + Mobile after side by side -->
+                <div class="cs-results__after">
+                    <div class="cs-after-compare">
+                        <div class="cs-after-compare__item">
+                            <span class="cs-caption">Desktop — after</span>
+                            <img src="../assets/cases/rodriguez/hero.webp" alt="Desktop experience after"
+                                class="cs-after-compare__image" loading="lazy" />
                         </div>
-                        <div class="cs-mobile-compare__item">
-                            <img src="../assets/cases/rodriguez/mobile-despues.webp" alt="Mobile experience after"
-                                class="cs-mobile-compare__image" loading="lazy" />
+                        <div class="cs-after-compare__item">
                             <span class="cs-caption">Mobile — after</span>
+                            <img src="../assets/cases/rodriguez/mobile-despues.webp" alt="Mobile experience after"
+                                class="cs-after-compare__image cs-after-compare__image--mobile" loading="lazy" />
                         </div>
                     </div>
                 </div>
@@ -221,10 +243,26 @@
 
     </main>
 
-    <!-- FOOTER MÍNIMO -->
     <footer class="cs-footer">
         <p>© 2026 Cristian Sanabria</p>
     </footer>
+
+    <script src="../scripts/main.js"></script>
+    <script>
+        // Nav scroll state
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 20);
+        });
+        // Hamburger
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            const open = hamburger.classList.toggle('open');
+            navLinks.classList.toggle('open', open);
+            hamburger.setAttribute('aria-expanded', open);
+        });
+    </script>
 
 </body>
 

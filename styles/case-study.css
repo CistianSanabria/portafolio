@@ -1,52 +1,16 @@
 /* ============================================================
    CASE STUDY — styles/case-study.css
    Portafolio Cristian Sanabria
-   Hito 3 — Mayo 2026 (v2 — fixes aplicados)
+   Hito 3 v3 — Mayo 2026
    ============================================================ */
 
 /* ------------------------------------------------------------
-   HEADER MÍNIMO
-   ------------------------------------------------------------ */
-.cs-header {
-   position: sticky;
-   top: 0;
-   z-index: 100;
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   padding: var(--space-3) var(--space-6);
-   background-color: var(--color-bg);
-   border-bottom: 1px solid var(--color-border);
-}
-
-.cs-logo img {
-   display: block;
-   width: 32px;
-   height: 32px;
-}
-
-.cs-back {
-   display: flex;
-   align-items: center;
-   gap: var(--space-1);
-   font-family: var(--font-body);
-   font-size: 0.875rem;
-   font-weight: 500;
-   color: var(--color-text-muted);
-   text-decoration: none;
-   transition: color 0.2s ease;
-}
-
-.cs-back:hover {
-   color: var(--color-text);
-}
-
-/* ------------------------------------------------------------
-   MAIN WRAPPER
+   OFFSET PARA NAV FLOTANTE
    ------------------------------------------------------------ */
 .cs-main {
    max-width: 1200px;
    margin: 0 auto;
+   padding-top: 100px;
 }
 
 /* ------------------------------------------------------------
@@ -64,20 +28,71 @@
 }
 
 /* ------------------------------------------------------------
-   BLOQUE 1 — HERO
+   BLOQUE 0 — COVER (hero estilo dvdrod)
    ------------------------------------------------------------ */
-.cs-hero {
-   padding: var(--space-12) var(--space-6) 0;
+.cs-cover {
+   position: relative;
+   width: 100vw;
+   left: 50%;
+   right: 50%;
+   margin-left: -50vw;
+   margin-right: -50vw;
+   height: 100vh;
+   min-height: 560px;
+   background: #0A0A0A;
+   display: flex;
+   align-items: flex-end;
+   overflow: hidden;
+   margin-top: -100px;
+   /* cancela el padding del main para que sea full */
 }
 
-/* FIX: meta en grid 2x2 en mobile, fila única en desktop */
-.cs-hero__meta {
+.cs-cover__bg {
+   position: absolute;
+   inset: 0;
+   background: #0A0A0A;
+   /* Placeholder — reemplazar con imagen de mockup cuando esté lista */
+}
+
+.cs-cover__content {
+   position: relative;
+   z-index: 2;
+   width: 100%;
+   padding: var(--space-12) var(--space-8);
+   display: flex;
+   flex-direction: column;
+   gap: var(--space-6);
+}
+
+.cs-cover__headline {
+   font-family: var(--font-display);
+   font-size: clamp(2.5rem, 5.5vw, 5rem);
+   font-weight: 800;
+   line-height: 1.05;
+   color: #FFFFFF;
+   max-width: 18ch;
+   margin: 0;
+}
+
+.cs-cover__meta {
    display: flex;
    gap: var(--space-8);
-   margin-bottom: var(--space-6);
    flex-wrap: wrap;
+   padding-top: var(--space-4);
+   border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+.cs-cover__meta .cs-meta-label {
+   color: rgba(255, 255, 255, 0.45);
+}
+
+.cs-cover__meta .cs-meta-value {
+   color: rgba(255, 255, 255, 0.9);
+}
+
+/* ------------------------------------------------------------
+   META ITEMS (compartido entre cover y hero)
+   ------------------------------------------------------------ */
 .cs-meta-item {
    display: flex;
    flex-direction: column;
@@ -100,22 +115,15 @@
    color: var(--color-text);
 }
 
-.cs-hero__headline {
-   font-family: var(--font-display);
-   font-size: clamp(2rem, 4.5vw, 3.5rem);
-   font-weight: 800;
-   line-height: 1.1;
-   color: var(--color-text);
-   max-width: 16ch;
-   margin-bottom: var(--space-8);
+/* ------------------------------------------------------------
+   BLOQUE 1 — HERO IMAGE (después del cover)
+   ------------------------------------------------------------ */
+.cs-hero {
+   padding: var(--space-8) 0 0;
 }
 
-/* Hero image — efecto cine */
 .cs-hero__image-wrap {
    width: 100%;
-   padding: 0 var(--space-6);
-   margin: 0 calc(-1 * var(--space-6));
-   box-sizing: content-box;
 }
 
 .cs-hero__image {
@@ -124,14 +132,16 @@
    display: block;
    border-radius: 4px;
    object-fit: cover;
+   border: 1px solid var(--color-border);
 }
 
 /* ------------------------------------------------------------
    BLOQUE 2 — OVERVIEW
    ------------------------------------------------------------ */
 .cs-overview {
-   padding: var(--space-16) var(--space-6);
+   padding: var(--space-16) 0;
    border-top: 1px solid var(--color-border);
+   margin-top: var(--space-8);
 }
 
 .cs-overview__inner {
@@ -145,15 +155,28 @@
    font-family: var(--font-body);
    font-size: 1.125rem;
    font-weight: 400;
-   line-height: 1.6;
+   line-height: 1.65;
    color: var(--color-text);
    max-width: 52ch;
 }
 
+/* FIX: métricas en fila horizontal con separadores */
 .cs-overview__metrics {
    display: flex;
-   flex-direction: column;
-   gap: var(--space-6);
+   flex-direction: row;
+   gap: 0;
+   align-items: flex-start;
+}
+
+.cs-overview__metrics .cs-metric {
+   flex: 1;
+   padding: 0 var(--space-4);
+   border-left: 1px solid var(--color-border);
+}
+
+.cs-overview__metrics .cs-metric:first-child {
+   padding-left: 0;
+   border-left: none;
 }
 
 .cs-metric {
@@ -164,7 +187,7 @@
 
 .cs-metric__value {
    font-family: var(--font-display);
-   font-size: 2.5rem;
+   font-size: 2.25rem;
    font-weight: 800;
    line-height: 1;
    color: var(--color-accent);
@@ -172,7 +195,7 @@
 
 .cs-metric__label {
    font-family: var(--font-body);
-   font-size: 0.875rem;
+   font-size: 0.8125rem;
    font-weight: 400;
    color: var(--color-text-muted);
    line-height: 1.4;
@@ -182,11 +205,10 @@
    BLOQUE 3 — PROCESS
    ------------------------------------------------------------ */
 .cs-process {
-   padding: var(--space-16) var(--space-6);
+   padding: var(--space-16) 0;
    border-top: 1px solid var(--color-border);
 }
 
-/* FIX: reducir gap entre label PROCESS y primera decisión */
 .cs-process__inner {
    display: flex;
    flex-direction: column;
@@ -231,12 +253,11 @@
    max-width: 64ch;
 }
 
-/* FIX: caption encima de imagen + max-height para imágenes largas */
 .cs-decision__image-wrap {
    display: flex;
    flex-direction: column;
    gap: var(--space-2);
-   margin-top: var(--space-3);
+   margin-top: var(--space-2);
 }
 
 .cs-caption {
@@ -246,11 +267,8 @@
    letter-spacing: 0.06em;
    text-transform: uppercase;
    color: var(--color-text-muted);
-   order: -1;
-   /* caption siempre encima */
 }
 
-/* FIX: max-height para imágenes de proceso muy largas */
 .cs-decision__image {
    width: 100%;
    max-height: 720px;
@@ -261,18 +279,55 @@
    object-position: top;
 }
 
+/* FIX: Before compare — desktop + mobile side by side, misma altura */
+.cs-before-compare {
+   display: grid;
+   grid-template-columns: 1fr auto;
+   gap: var(--space-3);
+   align-items: start;
+}
+
+.cs-before-compare__desk {
+   width: 100%;
+   height: 480px;
+   object-fit: cover;
+   object-position: top;
+   border-radius: 4px;
+   border: 1px solid var(--color-border);
+   display: block;
+}
+
+.cs-before-compare__mobile {
+   width: 180px;
+   height: 480px;
+   object-fit: cover;
+   object-position: top;
+   border-radius: 4px;
+   border: 1px solid var(--color-border);
+   display: block;
+   flex-shrink: 0;
+}
+
 /* ------------------------------------------------------------
    BLOQUE 4 — RESULTS
    ------------------------------------------------------------ */
-
-/* FIX: reducir padding superior de results */
 .cs-results {
-   padding: var(--space-12) var(--space-6) var(--space-16);
+   padding: var(--space-12) 0 var(--space-16);
    border-top: 1px solid var(--color-border);
    background-color: var(--color-surface);
+   /* full bleed */
+   width: 100vw;
+   position: relative;
+   left: 50%;
+   right: 50%;
+   margin-left: -50vw;
+   margin-right: -50vw;
 }
 
 .cs-results__inner {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 0 var(--space-8);
    display: flex;
    flex-direction: column;
    gap: var(--space-12);
@@ -281,41 +336,78 @@
 .cs-results__metrics {
    display: grid;
    grid-template-columns: repeat(3, 1fr);
-   gap: var(--space-8);
+   gap: 0;
+}
+
+.cs-metric--large {
+   padding: 0 var(--space-6);
+   border-left: 1px solid var(--color-border);
+}
+
+.cs-metric--large:first-child {
+   padding-left: 0;
+   border-left: none;
 }
 
 .cs-metric--large .cs-metric__value {
-   font-size: clamp(2.5rem, 5vw, 4rem);
+   font-size: clamp(2.5rem, 4.5vw, 3.75rem);
 }
 
 .cs-metric--large .cs-metric__label {
    font-size: 0.9375rem;
 }
 
-/* Mobile comparison side by side */
-.cs-results__mobile {
-   width: 100%;
-}
-
-.cs-mobile-compare {
-   display: grid;
-   grid-template-columns: 1fr 1fr;
-   gap: var(--space-4);
-}
-
-.cs-mobile-compare__item {
+/* Imagen final full width */
+.cs-results__final {
    display: flex;
    flex-direction: column;
    gap: var(--space-2);
 }
 
-.cs-mobile-compare__image {
+.cs-results__final-image {
    width: 100%;
    height: auto;
    display: block;
    border-radius: 4px;
    border: 1px solid var(--color-border);
    object-fit: cover;
+}
+
+/* After compare — desktop + mobile side by side proporcional */
+.cs-results__after {
+   display: flex;
+   flex-direction: column;
+   gap: var(--space-2);
+}
+
+.cs-after-compare {
+   display: grid;
+   grid-template-columns: 1fr auto;
+   gap: var(--space-3);
+   align-items: start;
+}
+
+.cs-after-compare__item {
+   display: flex;
+   flex-direction: column;
+   gap: var(--space-2);
+}
+
+.cs-after-compare__image {
+   width: 100%;
+   height: 520px;
+   object-fit: cover;
+   object-position: top;
+   border-radius: 4px;
+   border: 1px solid var(--color-border);
+   display: block;
+}
+
+.cs-after-compare__image--mobile {
+   width: 200px;
+   height: 520px;
+   object-fit: cover;
+   object-position: top;
 }
 
 /* Key learning */
@@ -326,19 +418,18 @@
 
 .cs-learning__text {
    font-family: var(--font-display);
-   font-size: clamp(1.125rem, 2vw, 1.5rem);
+   font-size: clamp(1.25rem, 2.2vw, 1.75rem);
    font-weight: 800;
-   line-height: 1.3;
+   line-height: 1.25;
    color: var(--color-text);
    max-width: 48ch;
 }
 
 /* ------------------------------------------------------------
    NAVEGACIÓN SIGUIENTE CASE
-   FIX: estado visual en reposo más claro
    ------------------------------------------------------------ */
 .cs-nav-next {
-   padding: var(--space-12) var(--space-6);
+   padding: var(--space-12) 0;
    border-top: 1px solid var(--color-border);
 }
 
@@ -349,7 +440,7 @@
    text-decoration: none;
    padding: var(--space-6) 0;
    border-bottom: 1px solid var(--color-border);
-   transition: gap 0.3s ease, background-color 0.2s ease;
+   transition: gap 0.3s ease;
 }
 
 .cs-next-link:hover {
@@ -391,7 +482,7 @@
    FOOTER
    ------------------------------------------------------------ */
 .cs-footer {
-   padding: var(--space-6);
+   padding: var(--space-4) 0;
    text-align: center;
    font-family: var(--font-body);
    font-size: 0.8125rem;
@@ -403,29 +494,34 @@
    RESPONSIVE — TABLET (769px – 1024px)
    ============================================================ */
 @media (min-width: 769px) and (max-width: 1024px) {
-   .cs-header {
-      padding: var(--space-3) var(--space-4);
+   .cs-main {
+      padding-top: 88px;
    }
 
-   .cs-hero {
-      padding: var(--space-8) var(--space-4) 0;
+   .cs-cover__content {
+      padding: var(--space-10) var(--space-6);
    }
 
-   .cs-hero__meta {
-      gap: var(--space-6);
+   .cs-results__inner {
+      padding: 0 var(--space-6);
    }
 
-   .cs-overview,
-   .cs-process,
-   .cs-results,
-   .cs-nav-next {
-      padding-left: var(--space-4);
-      padding-right: var(--space-4);
+   .cs-before-compare__mobile {
+      width: 140px;
+      height: 400px;
    }
 
-   .cs-results__metrics {
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-4);
+   .cs-before-compare__desk {
+      height: 400px;
+   }
+
+   .cs-after-compare__image {
+      height: 420px;
+   }
+
+   .cs-after-compare__image--mobile {
+      width: 160px;
+      height: 420px;
    }
 }
 
@@ -433,60 +529,139 @@
    RESPONSIVE — MOBILE (< 768px)
    ============================================================ */
 @media (max-width: 768px) {
-   .cs-header {
-      padding: var(--space-2) var(--space-3);
+   .cs-main {
+      padding-top: 52px;
    }
 
-   .cs-hero {
-      padding: var(--space-8) var(--space-3) 0;
+   /* Cover mobile */
+   .cs-cover {
+      height: 100svh;
+      min-height: 480px;
+      margin-top: -52px;
    }
 
-   /* FIX: meta en grid 2x2 en mobile */
-   .cs-hero__meta {
+   .cs-cover__content {
+      padding: var(--space-6) var(--space-3);
+      gap: var(--space-4);
+   }
+
+   .cs-cover__headline {
+      font-size: clamp(1.75rem, 8vw, 2.5rem);
+   }
+
+   .cs-cover__meta {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: var(--space-4) var(--space-6);
+      gap: var(--space-3) var(--space-4);
+      padding-top: var(--space-3);
    }
 
-   .cs-hero__image-wrap {
-      padding: 0 var(--space-3);
-      margin: 0 calc(-1 * var(--space-3));
+   /* Hero image mobile */
+   .cs-hero {
+      padding: var(--space-4) 0 0;
    }
 
+   /* Overview mobile */
    .cs-overview {
-      padding: var(--space-12) var(--space-3);
+      padding: var(--space-10) 0;
+      margin-top: var(--space-4);
    }
 
    .cs-overview__inner {
       grid-template-columns: 1fr;
-      gap: var(--space-8);
+      gap: var(--space-6);
    }
 
+   /* Métricas en columna en mobile */
+   .cs-overview__metrics {
+      flex-direction: column;
+      gap: var(--space-4);
+   }
+
+   .cs-overview__metrics .cs-metric {
+      padding: 0;
+      border-left: none;
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid var(--color-border);
+   }
+
+   .cs-overview__metrics .cs-metric:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+   }
+
+   /* Process mobile */
    .cs-process {
-      padding: var(--space-12) var(--space-3);
+      padding: var(--space-10) 0;
    }
 
-   /* FIX: max-height más reducido en mobile */
+   .cs-process__inner {
+      gap: var(--space-10);
+   }
+
+   /* Before compare mobile — stack vertical */
+   .cs-before-compare {
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+   }
+
+   .cs-before-compare__desk {
+      height: 280px;
+   }
+
+   .cs-before-compare__mobile {
+      width: 100%;
+      height: 320px;
+   }
+
    .cs-decision__image {
-      max-height: 480px;
+      max-height: 360px;
    }
 
-   .cs-results {
-      padding: var(--space-10) var(--space-3) var(--space-12);
+   /* Results mobile */
+   .cs-results__inner {
+      padding: 0 var(--space-3);
+      gap: var(--space-8);
    }
 
    .cs-results__metrics {
       grid-template-columns: 1fr;
-      gap: var(--space-6);
+      gap: 0;
    }
 
-   .cs-mobile-compare {
-      grid-template-columns: 1fr 1fr;
+   .cs-metric--large {
+      padding: var(--space-4) 0;
+      border-left: none;
+      border-bottom: 1px solid var(--color-border);
+   }
+
+   .cs-metric--large:first-child {
+      padding-top: 0;
+   }
+
+   .cs-metric--large:last-child {
+      border-bottom: none;
+   }
+
+   /* After compare mobile — stack vertical */
+   .cs-after-compare {
+      grid-template-columns: 1fr;
       gap: var(--space-3);
    }
 
+   .cs-after-compare__image {
+      height: 280px;
+      width: 100%;
+   }
+
+   .cs-after-compare__image--mobile {
+      width: 100%;
+      height: 320px;
+   }
+
+   /* Next project mobile */
    .cs-nav-next {
-      padding: var(--space-8) var(--space-3);
+      padding: var(--space-8) 0;
    }
 
    .cs-next-link {
@@ -496,9 +671,5 @@
 
    .cs-next-link__tags {
       display: none;
-   }
-
-   .cs-footer {
-      padding: var(--space-4) var(--space-3);
    }
 }
