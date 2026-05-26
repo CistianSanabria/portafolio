@@ -205,7 +205,7 @@
 .cs-process__inner {
    display: flex;
    flex-direction: column;
-   gap: var(--space-12);
+   gap: var(--space-6);
 }
 
 .cs-decision {
@@ -290,7 +290,7 @@
 .cs-results__inner {
    display: flex;
    flex-direction: column;
-   gap: var(--space-12);
+   gap: var(--space-6);
 }
 
 .cs-results__metrics {
