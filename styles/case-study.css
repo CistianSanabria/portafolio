@@ -147,13 +147,13 @@
    font-weight: 400;
    line-height: 1.6;
    color: var(--color-text);
-   max-width: 52ch;
+   max-width: 46ch;
 }
 
 .cs-overview__metrics {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .cs-overview__metrics .cs-metric {
