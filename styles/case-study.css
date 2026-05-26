@@ -421,7 +421,7 @@
 /* Before compare: desktop + mobile mismo alto */
 .cs-before-compare {
   display: grid;
-  grid-template-columns: 1fr 160px;
+  grid-template-columns: 1fr 220px;
   gap: var(--space-3);
   align-items: start;
 }
@@ -437,7 +437,7 @@
 }
 
 .cs-before-compare__mobile {
-  width: 160px;
+  width: 220px;
   height: 460px;
   object-fit: cover;
   object-position: top;
