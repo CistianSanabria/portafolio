@@ -464,11 +464,12 @@
   .cs-header { padding: var(--space-2) var(--space-3); }
 
   /* Overview */
-  .cs-overview { padding: var(--space-12) 0; }
   .cs-overview__inner {
     grid-template-columns: 1fr;
     gap: var(--space-8);
+    width: 100%;
   }
+  .cs-overview__text { max-width: 100%; }
   .cs-overview__metrics {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
