@@ -598,7 +598,10 @@
 .cs-cover {
   position: relative;
   min-height: 100vh;
+  height: 100vh;
+  max-height: 900px;
   overflow: hidden;
+  background: #2A2E35;
 }
 .cs-cover-img {
   position: absolute;
@@ -606,7 +609,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  object-position: right center;
+  object-position: right bottom;
 }
 .cs-cover-content {
   position: absolute;
@@ -646,4 +649,31 @@
   font-size: 0.9rem;
   font-weight: 500;
   color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+  .cs-cover {
+    min-height: 100svh;
+    height: 100svh;
+    max-height: none;
+  }
+  .cs-cover-img {
+    object-position: center top;
+    object-fit: cover;
+    opacity: 0.6;
+  }
+  .cs-cover-content {
+    left: 24px;
+    right: 24px;
+    bottom: 32px;
+  }
+  .cs-cover-headline {
+    font-size: clamp(1.5rem, 6vw, 2.25rem);
+    max-width: 100%;
+    margin-bottom: 24px;
+  }
+  .cs-cover-meta {
+    flex-wrap: wrap;
+    gap: 16px 32px;
+  }
 }
