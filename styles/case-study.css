@@ -1,16 +1,44 @@
 /* ============================================================
    CASE STUDY — styles/case-study.css
-   Portafolio Cristian Sanabria
-   Hito 3 v3 — Mayo 2026
+   Portafolio Cristian Sanabria — v4
    ============================================================ */
 
 /* ------------------------------------------------------------
-   OFFSET PARA NAV FLOTANTE
+   VARIABLES LOCALES
+   ------------------------------------------------------------ */
+:root {
+   --cs-padding-x: var(--space-8);
+   /* 64px desktop */
+   --cs-padding-x-tablet: var(--space-6);
+   /* 48px tablet */
+   --cs-padding-x-mobile: var(--space-3);
+   /* 24px mobile */
+   --cs-max-width: 1200px;
+}
+
+/* ------------------------------------------------------------
+   BODY — offset nav flotante
+   ------------------------------------------------------------ */
+body {
+   padding-top: 100px;
+}
+
+/* ------------------------------------------------------------
+   WRAPPER GENERAL
    ------------------------------------------------------------ */
 .cs-main {
-   max-width: 1200px;
+   width: 100%;
+   max-width: var(--cs-max-width);
    margin: 0 auto;
-   padding-top: 100px;
+   padding-left: var(--cs-padding-x);
+   padding-right: var(--cs-padding-x);
+}
+
+/* Utilidad: sección que rompe el max-width y va de borde a borde */
+.cs-full-bleed {
+   width: 100vw;
+   margin-left: calc(-1 * var(--cs-padding-x));
+   margin-right: calc(-1 * var(--cs-padding-x));
 }
 
 /* ------------------------------------------------------------
@@ -28,37 +56,25 @@
 }
 
 /* ------------------------------------------------------------
-   BLOQUE 0 — COVER (hero estilo dvdrod)
+   BLOQUE 0 — COVER (fondo negro, headline + meta)
    ------------------------------------------------------------ */
 .cs-cover {
-   position: relative;
    width: 100vw;
-   left: 50%;
-   right: 50%;
-   margin-left: -50vw;
-   margin-right: -50vw;
-   height: 100vh;
-   min-height: 560px;
+   margin-left: calc(-1 * var(--cs-padding-x));
+   margin-right: calc(-1 * var(--cs-padding-x));
+   margin-top: -100px;
+   /* sube para cubrir el body padding-top */
+   min-height: 100vh;
    background: #0A0A0A;
    display: flex;
    align-items: flex-end;
    overflow: hidden;
-   margin-top: -100px;
-   /* cancela el padding del main para que sea full */
-}
-
-.cs-cover__bg {
-   position: absolute;
-   inset: 0;
-   background: #0A0A0A;
-   /* Placeholder — reemplazar con imagen de mockup cuando esté lista */
+   position: relative;
 }
 
 .cs-cover__content {
-   position: relative;
-   z-index: 2;
    width: 100%;
-   padding: var(--space-12) var(--space-8);
+   padding: var(--space-12) var(--cs-padding-x);
    display: flex;
    flex-direction: column;
    gap: var(--space-6);
@@ -66,7 +82,7 @@
 
 .cs-cover__headline {
    font-family: var(--font-display);
-   font-size: clamp(2.5rem, 5.5vw, 5rem);
+   font-size: clamp(2rem, 5vw, 4.5rem);
    font-weight: 800;
    line-height: 1.05;
    color: #FFFFFF;
@@ -82,6 +98,7 @@
    border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+/* Meta items — versión oscura (cover) */
 .cs-cover__meta .cs-meta-label {
    color: rgba(255, 255, 255, 0.45);
 }
@@ -91,7 +108,7 @@
 }
 
 /* ------------------------------------------------------------
-   META ITEMS (compartido entre cover y hero)
+   META ITEMS (compartido)
    ------------------------------------------------------------ */
 .cs-meta-item {
    display: flex;
@@ -116,10 +133,11 @@
 }
 
 /* ------------------------------------------------------------
-   BLOQUE 1 — HERO IMAGE (después del cover)
+   BLOQUE 1 — HERO IMAGE
    ------------------------------------------------------------ */
 .cs-hero {
-   padding: var(--space-8) 0 0;
+   padding-top: var(--space-8);
+   padding-bottom: 0;
 }
 
 .cs-hero__image-wrap {
@@ -131,40 +149,39 @@
    height: auto;
    display: block;
    border-radius: 4px;
-   object-fit: cover;
    border: 1px solid var(--color-border);
+   object-fit: cover;
 }
 
 /* ------------------------------------------------------------
    BLOQUE 2 — OVERVIEW
    ------------------------------------------------------------ */
 .cs-overview {
-   padding: var(--space-16) 0;
+   padding-top: var(--space-12);
+   padding-bottom: var(--space-12);
    border-top: 1px solid var(--color-border);
    margin-top: var(--space-8);
 }
 
 .cs-overview__inner {
    display: grid;
-   grid-template-columns: 1fr 1fr;
+   grid-template-columns: 1.1fr 0.9fr;
    gap: var(--space-12);
    align-items: start;
 }
 
 .cs-overview__text {
    font-family: var(--font-body);
-   font-size: 1.125rem;
+   font-size: 1.0625rem;
    font-weight: 400;
-   line-height: 1.65;
+   line-height: 1.7;
    color: var(--color-text);
-   max-width: 52ch;
 }
 
-/* FIX: métricas en fila horizontal con separadores */
+/* Métricas horizontales con separador */
 .cs-overview__metrics {
    display: flex;
    flex-direction: row;
-   gap: 0;
    align-items: flex-start;
 }
 
@@ -187,7 +204,7 @@
 
 .cs-metric__value {
    font-family: var(--font-display);
-   font-size: 2.25rem;
+   font-size: 2rem;
    font-weight: 800;
    line-height: 1;
    color: var(--color-accent);
@@ -205,7 +222,8 @@
    BLOQUE 3 — PROCESS
    ------------------------------------------------------------ */
 .cs-process {
-   padding: var(--space-16) 0;
+   padding-top: var(--space-12);
+   padding-bottom: var(--space-12);
    border-top: 1px solid var(--color-border);
 }
 
@@ -218,18 +236,18 @@
 .cs-decision {
    display: flex;
    flex-direction: column;
-   gap: var(--space-4);
+   gap: var(--space-3);
 }
 
 .cs-decision__header {
    display: flex;
    align-items: baseline;
-   gap: var(--space-3);
+   gap: var(--space-2);
 }
 
 .cs-decision__number {
    font-family: var(--font-display);
-   font-size: 0.875rem;
+   font-size: 0.8125rem;
    font-weight: 800;
    color: var(--color-accent);
    letter-spacing: 0.05em;
@@ -238,7 +256,7 @@
 
 .cs-decision__title {
    font-family: var(--font-display);
-   font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+   font-size: clamp(1.25rem, 2.2vw, 1.625rem);
    font-weight: 800;
    line-height: 1.15;
    color: var(--color-text);
@@ -246,11 +264,11 @@
 
 .cs-decision__body {
    font-family: var(--font-body);
-   font-size: 1rem;
+   font-size: 0.9375rem;
    font-weight: 400;
    line-height: 1.65;
    color: var(--color-text-muted);
-   max-width: 64ch;
+   max-width: 60ch;
 }
 
 .cs-decision__image-wrap {
@@ -262,16 +280,16 @@
 
 .cs-caption {
    font-family: var(--font-body);
-   font-size: 0.75rem;
-   font-weight: 500;
-   letter-spacing: 0.06em;
+   font-size: 0.6875rem;
+   font-weight: 600;
+   letter-spacing: 0.08em;
    text-transform: uppercase;
    color: var(--color-text-muted);
 }
 
 .cs-decision__image {
    width: 100%;
-   max-height: 720px;
+   max-height: 680px;
    display: block;
    border-radius: 4px;
    border: 1px solid var(--color-border);
@@ -279,64 +297,57 @@
    object-position: top;
 }
 
-/* FIX: Before compare — desktop + mobile side by side, misma altura */
+/* Before compare: desktop + mobile lado a lado, misma altura */
 .cs-before-compare {
    display: grid;
-   grid-template-columns: 1fr auto;
+   grid-template-columns: 1fr 160px;
    gap: var(--space-3);
    align-items: start;
 }
 
-.cs-before-compare__desk {
-   width: 100%;
-   height: 480px;
+.cs-before-compare__desk,
+.cs-before-compare__mobile {
+   display: block;
+   height: 460px;
    object-fit: cover;
    object-position: top;
    border-radius: 4px;
    border: 1px solid var(--color-border);
-   display: block;
+}
+
+.cs-before-compare__desk {
+   width: 100%;
 }
 
 .cs-before-compare__mobile {
-   width: 180px;
-   height: 480px;
-   object-fit: cover;
-   object-position: top;
-   border-radius: 4px;
-   border: 1px solid var(--color-border);
-   display: block;
-   flex-shrink: 0;
+   width: 160px;
 }
 
 /* ------------------------------------------------------------
    BLOQUE 4 — RESULTS
    ------------------------------------------------------------ */
 .cs-results {
-   padding: var(--space-12) 0 var(--space-16);
+   /* full bleed con padding interno */
+   width: 100vw;
+   margin-left: calc(-1 * var(--cs-padding-x));
+   margin-right: calc(-1 * var(--cs-padding-x));
+   padding: var(--space-12) var(--cs-padding-x) var(--space-16);
    border-top: 1px solid var(--color-border);
    background-color: var(--color-surface);
-   /* full bleed */
-   width: 100vw;
-   position: relative;
-   left: 50%;
-   right: 50%;
-   margin-left: -50vw;
-   margin-right: -50vw;
 }
 
 .cs-results__inner {
-   max-width: 1200px;
+   max-width: var(--cs-max-width);
    margin: 0 auto;
-   padding: 0 var(--space-8);
    display: flex;
    flex-direction: column;
-   gap: var(--space-12);
+   gap: var(--space-10);
 }
 
+/* Métricas grandes en 3 columnas con separador */
 .cs-results__metrics {
    display: grid;
    grid-template-columns: repeat(3, 1fr);
-   gap: 0;
 }
 
 .cs-metric--large {
@@ -350,14 +361,15 @@
 }
 
 .cs-metric--large .cs-metric__value {
-   font-size: clamp(2.5rem, 4.5vw, 3.75rem);
+   font-size: clamp(2.25rem, 4vw, 3.5rem);
 }
 
 .cs-metric--large .cs-metric__label {
-   font-size: 0.9375rem;
+   font-size: 0.875rem;
+   max-width: 20ch;
 }
 
-/* Imagen final full width */
+/* Imagen final desktop full width */
 .cs-results__final {
    display: flex;
    flex-direction: column;
@@ -373,16 +385,10 @@
    object-fit: cover;
 }
 
-/* After compare — desktop + mobile side by side proporcional */
-.cs-results__after {
-   display: flex;
-   flex-direction: column;
-   gap: var(--space-2);
-}
-
+/* After compare: desktop + mobile proporcional */
 .cs-after-compare {
    display: grid;
-   grid-template-columns: 1fr auto;
+   grid-template-columns: 1fr 200px;
    gap: var(--space-3);
    align-items: start;
 }
@@ -394,31 +400,29 @@
 }
 
 .cs-after-compare__image {
+   display: block;
    width: 100%;
-   height: 520px;
+   height: 500px;
    object-fit: cover;
    object-position: top;
    border-radius: 4px;
    border: 1px solid var(--color-border);
-   display: block;
 }
 
 .cs-after-compare__image--mobile {
    width: 200px;
-   height: 520px;
-   object-fit: cover;
-   object-position: top;
+   height: 500px;
 }
 
 /* Key learning */
 .cs-results__learning {
-   padding-top: var(--space-8);
+   padding-top: var(--space-6);
    border-top: 1px solid var(--color-border);
 }
 
 .cs-learning__text {
    font-family: var(--font-display);
-   font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+   font-size: clamp(1.125rem, 2vw, 1.625rem);
    font-weight: 800;
    line-height: 1.25;
    color: var(--color-text);
@@ -426,10 +430,11 @@
 }
 
 /* ------------------------------------------------------------
-   NAVEGACIÓN SIGUIENTE CASE
+   NEXT PROJECT
    ------------------------------------------------------------ */
 .cs-nav-next {
-   padding: var(--space-12) 0;
+   padding-top: var(--space-10);
+   padding-bottom: var(--space-10);
    border-top: 1px solid var(--color-border);
 }
 
@@ -438,9 +443,9 @@
    align-items: center;
    gap: var(--space-4);
    text-decoration: none;
-   padding: var(--space-6) 0;
+   padding: var(--space-4) 0;
    border-bottom: 1px solid var(--color-border);
-   transition: gap 0.3s ease;
+   transition: gap 0.25s ease;
 }
 
 .cs-next-link:hover {
@@ -476,6 +481,7 @@
    font-size: 0.875rem;
    font-weight: 500;
    color: var(--color-text-muted);
+   white-space: nowrap;
 }
 
 /* ------------------------------------------------------------
@@ -491,28 +497,48 @@
 }
 
 /* ============================================================
-   RESPONSIVE — TABLET (769px – 1024px)
+   TABLET (769px – 1024px)
    ============================================================ */
 @media (min-width: 769px) and (max-width: 1024px) {
-   .cs-main {
+
+   :root {
+      --cs-padding-x: var(--cs-padding-x-tablet);
+   }
+
+   body {
       padding-top: 88px;
    }
 
-   .cs-cover__content {
-      padding: var(--space-10) var(--space-6);
+   .cs-cover {
+      margin-top: -88px;
    }
 
-   .cs-results__inner {
-      padding: 0 var(--space-6);
+   .cs-cover__content {
+      padding: var(--space-10) var(--cs-padding-x-tablet);
+   }
+
+   .cs-results {
+      margin-left: calc(-1 * var(--cs-padding-x-tablet));
+      margin-right: calc(-1 * var(--cs-padding-x-tablet));
+      padding-left: var(--cs-padding-x-tablet);
+      padding-right: var(--cs-padding-x-tablet);
+   }
+
+   .cs-before-compare {
+      grid-template-columns: 1fr 130px;
+   }
+
+   .cs-before-compare__desk,
+   .cs-before-compare__mobile {
+      height: 380px;
    }
 
    .cs-before-compare__mobile {
-      width: 140px;
-      height: 400px;
+      width: 130px;
    }
 
-   .cs-before-compare__desk {
-      height: 400px;
+   .cs-after-compare {
+      grid-template-columns: 1fr 160px;
    }
 
    .cs-after-compare__image {
@@ -526,22 +552,26 @@
 }
 
 /* ============================================================
-   RESPONSIVE — MOBILE (< 768px)
+   MOBILE (< 768px)
    ============================================================ */
 @media (max-width: 768px) {
-   .cs-main {
+
+   :root {
+      --cs-padding-x: var(--cs-padding-x-mobile);
+   }
+
+   body {
       padding-top: 52px;
    }
 
    /* Cover mobile */
    .cs-cover {
-      height: 100svh;
-      min-height: 480px;
       margin-top: -52px;
+      min-height: 100svh;
    }
 
    .cs-cover__content {
-      padding: var(--space-6) var(--space-3);
+      padding: var(--space-6) var(--cs-padding-x-mobile);
       gap: var(--space-4);
    }
 
@@ -552,18 +582,28 @@
    .cs-cover__meta {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: var(--space-3) var(--space-4);
+      gap: var(--space-2) var(--space-4);
       padding-top: var(--space-3);
    }
 
-   /* Hero image mobile */
-   .cs-hero {
-      padding: var(--space-4) 0 0;
+   /* Results full-bleed mobile */
+   .cs-results {
+      margin-left: calc(-1 * var(--cs-padding-x-mobile));
+      margin-right: calc(-1 * var(--cs-padding-x-mobile));
+      padding-left: var(--cs-padding-x-mobile);
+      padding-right: var(--cs-padding-x-mobile);
+      padding-top: var(--space-8);
+      padding-bottom: var(--space-10);
    }
 
-   /* Overview mobile */
+   .cs-results__inner {
+      gap: var(--space-8);
+   }
+
+   /* Overview mobile: stack vertical */
    .cs-overview {
-      padding: var(--space-10) 0;
+      padding-top: var(--space-8);
+      padding-bottom: var(--space-8);
       margin-top: var(--space-4);
    }
 
@@ -572,17 +612,20 @@
       gap: var(--space-6);
    }
 
-   /* Métricas en columna en mobile */
+   /* Métricas overview: columna con separador horizontal */
    .cs-overview__metrics {
       flex-direction: column;
-      gap: var(--space-4);
+      gap: 0;
    }
 
    .cs-overview__metrics .cs-metric {
-      padding: 0;
+      padding: var(--space-3) 0;
       border-left: none;
-      padding-bottom: var(--space-4);
       border-bottom: 1px solid var(--color-border);
+   }
+
+   .cs-overview__metrics .cs-metric:first-child {
+      padding-top: 0;
    }
 
    .cs-overview__metrics .cs-metric:last-child {
@@ -592,45 +635,40 @@
 
    /* Process mobile */
    .cs-process {
-      padding: var(--space-10) 0;
+      padding-top: var(--space-8);
+      padding-bottom: var(--space-8);
    }
 
    .cs-process__inner {
-      gap: var(--space-10);
+      gap: var(--space-8);
    }
 
-   /* Before compare mobile — stack vertical */
+   .cs-decision__image {
+      max-height: 320px;
+   }
+
+   /* Before compare mobile: stack vertical */
    .cs-before-compare {
       grid-template-columns: 1fr;
       gap: var(--space-3);
    }
 
    .cs-before-compare__desk {
-      height: 280px;
+      height: 240px;
    }
 
    .cs-before-compare__mobile {
       width: 100%;
-      height: 320px;
+      height: 260px;
    }
 
-   .cs-decision__image {
-      max-height: 360px;
-   }
-
-   /* Results mobile */
-   .cs-results__inner {
-      padding: 0 var(--space-3);
-      gap: var(--space-8);
-   }
-
+   /* Results metrics mobile: columna */
    .cs-results__metrics {
       grid-template-columns: 1fr;
-      gap: 0;
    }
 
    .cs-metric--large {
-      padding: var(--space-4) 0;
+      padding: var(--space-3) 0;
       border-left: none;
       border-bottom: 1px solid var(--color-border);
    }
@@ -641,32 +679,34 @@
 
    .cs-metric--large:last-child {
       border-bottom: none;
+      padding-bottom: 0;
    }
 
-   /* After compare mobile — stack vertical */
+   /* After compare mobile: stack vertical */
    .cs-after-compare {
       grid-template-columns: 1fr;
       gap: var(--space-3);
    }
 
    .cs-after-compare__image {
-      height: 280px;
+      height: 240px;
       width: 100%;
    }
 
    .cs-after-compare__image--mobile {
       width: 100%;
-      height: 320px;
+      height: 260px;
    }
 
    /* Next project mobile */
    .cs-nav-next {
-      padding: var(--space-8) 0;
+      padding-top: var(--space-8);
+      padding-bottom: var(--space-8);
    }
 
    .cs-next-link {
       flex-wrap: wrap;
-      gap: var(--space-3);
+      gap: var(--space-2);
    }
 
    .cs-next-link__tags {

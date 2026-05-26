@@ -13,7 +13,7 @@
 
 <body>
 
-    <!-- NAV FLOTANTE — igual que homepage -->
+    <!-- NAV FLOTANTE (idéntico al de homepage) -->
     <nav class="nav-pill" id="mainNav" aria-label="Main navigation">
         <a href="../index.html" class="nav-logo" aria-label="Back to home">
             <img src="../assets/CS_Vector.svg" alt="Cristian Sanabria" />
@@ -34,9 +34,8 @@
 
     <main class="cs-main">
 
-        <!-- BLOQUE 0: COVER — hero estilo dvdrod -->
+        <!-- COVER: fondo negro, headline + meta -->
         <section class="cs-cover">
-            <div class="cs-cover__bg"></div>
             <div class="cs-cover__content">
                 <h1 class="cs-cover__headline">
                     Turning an incomplete website into a brand's first real sales channel
@@ -62,7 +61,7 @@
             </div>
         </section>
 
-        <!-- BLOQUE 1: HERO IMAGE -->
+        <!-- HERO IMAGE -->
         <section class="cs-hero">
             <div class="cs-hero__image-wrap">
                 <img src="../assets/cases/rodriguez/hero.webp" alt="Rodriguez Project — Final homepage design"
@@ -70,7 +69,7 @@
             </div>
         </section>
 
-        <!-- BLOQUE 2: OVERVIEW -->
+        <!-- OVERVIEW -->
         <section class="cs-overview">
             <div class="cs-overview__inner">
                 <div class="cs-overview__problem">
@@ -98,12 +97,12 @@
             </div>
         </section>
 
-        <!-- BLOQUE 3: PROCESS -->
+        <!-- PROCESS -->
         <section class="cs-process">
             <div class="cs-process__inner">
                 <span class="cs-label">Process</span>
 
-                <!-- Decisión 1 — desktop before + mobile before side by side -->
+                <!-- 01 -->
                 <div class="cs-decision">
                     <div class="cs-decision__header">
                         <span class="cs-decision__number">01</span>
@@ -117,15 +116,15 @@
                     <div class="cs-decision__image-wrap">
                         <span class="cs-caption">Homepage — before (desktop + mobile)</span>
                         <div class="cs-before-compare">
-                            <img src="../assets/cases/rodriguez/antes-01.webp" alt="Homepage desktop before redesign"
+                            <img src="../assets/cases/rodriguez/antes-01.webp" alt="Homepage desktop before"
                                 class="cs-before-compare__desk" loading="lazy" />
-                            <img src="../assets/cases/rodriguez/mobile-antes.webp" alt="Homepage mobile before redesign"
+                            <img src="../assets/cases/rodriguez/mobile-antes.webp" alt="Homepage mobile before"
                                 class="cs-before-compare__mobile" loading="lazy" />
                         </div>
                     </div>
                 </div>
 
-                <!-- Decisión 2 -->
+                <!-- 02 -->
                 <div class="cs-decision">
                     <div class="cs-decision__header">
                         <span class="cs-decision__number">02</span>
@@ -148,7 +147,7 @@
                     </div>
                 </div>
 
-                <!-- Decisión 3 -->
+                <!-- 03 -->
                 <div class="cs-decision">
                     <div class="cs-decision__header">
                         <span class="cs-decision__number">03</span>
@@ -174,7 +173,7 @@
             </div>
         </section>
 
-        <!-- BLOQUE 4: RESULTS -->
+        <!-- RESULTS -->
         <section class="cs-results">
             <div class="cs-results__inner">
                 <span class="cs-label">Results</span>
@@ -194,26 +193,22 @@
                     </div>
                 </div>
 
-                <!-- Imagen final full width -->
                 <div class="cs-results__final">
                     <span class="cs-caption">Final result — desktop</span>
-                    <img src="../assets/cases/rodriguez/resultado-final.webp"
-                        alt="Rodriguez Project — Final result desktop" class="cs-results__final-image" loading="lazy" />
+                    <img src="../assets/cases/rodriguez/resultado-final.webp" alt="Rodriguez Project — Final desktop"
+                        class="cs-results__final-image" loading="lazy" />
                 </div>
 
-                <!-- Desktop + Mobile after side by side -->
-                <div class="cs-results__after">
-                    <div class="cs-after-compare">
-                        <div class="cs-after-compare__item">
-                            <span class="cs-caption">Desktop — after</span>
-                            <img src="../assets/cases/rodriguez/hero.webp" alt="Desktop experience after"
-                                class="cs-after-compare__image" loading="lazy" />
-                        </div>
-                        <div class="cs-after-compare__item">
-                            <span class="cs-caption">Mobile — after</span>
-                            <img src="../assets/cases/rodriguez/mobile-despues.webp" alt="Mobile experience after"
-                                class="cs-after-compare__image cs-after-compare__image--mobile" loading="lazy" />
-                        </div>
+                <div class="cs-after-compare">
+                    <div class="cs-after-compare__item">
+                        <span class="cs-caption">Desktop — after</span>
+                        <img src="../assets/cases/rodriguez/hero.webp" alt="Desktop after"
+                            class="cs-after-compare__image" loading="lazy" />
+                    </div>
+                    <div class="cs-after-compare__item">
+                        <span class="cs-caption">Mobile — after</span>
+                        <img src="../assets/cases/rodriguez/mobile-despues.webp" alt="Mobile after"
+                            class="cs-after-compare__image cs-after-compare__image--mobile" loading="lazy" />
                     </div>
                 </div>
 
@@ -228,7 +223,7 @@
             </div>
         </section>
 
-        <!-- NAVEGACIÓN ENTRE CASES -->
+        <!-- NEXT PROJECT -->
         <nav class="cs-nav-next">
             <span class="cs-label">Next project</span>
             <a href="gannar.html" class="cs-next-link">
@@ -247,20 +242,19 @@
         <p>© 2026 Cristian Sanabria</p>
     </footer>
 
-    <script src="../scripts/main.js"></script>
     <script>
-        // Nav scroll state
         const nav = document.getElementById('mainNav');
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
         window.addEventListener('scroll', () => {
             nav.classList.toggle('scrolled', window.scrollY > 20);
         });
-        // Hamburger
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
+
         hamburger.addEventListener('click', () => {
             const open = hamburger.classList.toggle('open');
             navLinks.classList.toggle('open', open);
-            hamburger.setAttribute('aria-expanded', open);
+            hamburger.setAttribute('aria-expanded', String(open));
         });
     </script>
 
