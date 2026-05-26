@@ -479,6 +479,51 @@
 /* ============================================================
    RESPONSIVE — MOBILE (< 768px)
    ============================================================ */
+
+/* Results final image */
+.cs-results__final {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.cs-results__final-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+}
+
+/* After compare: desktop + mobile proporcional */
+.cs-after-compare {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: var(--space-3);
+  align-items: start;
+}
+
+.cs-after-compare__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.cs-after-compare__image {
+  display: block;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+}
+
+.cs-after-compare__image--mobile {
+  width: 220px;
+  height: 500px;
+}
+
 @media (max-width: 768px) {
    .cs-header {
       padding: var(--space-2) var(--space-3);
