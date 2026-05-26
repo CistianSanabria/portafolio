@@ -138,12 +138,12 @@
    display: grid;
    grid-template-columns: 1fr 1fr;
    gap: var(--space-12);
-   align-items: start;
+   align-items: center;
 }
 
 .cs-overview__text {
    font-family: var(--font-body);
-   font-size: 1.125rem;
+   font-size: 1rem;
    font-weight: 400;
    line-height: 1.6;
    color: var(--color-text);
