@@ -205,13 +205,18 @@
 .cs-process__inner {
    display: flex;
    flex-direction: column;
-   gap: var(--space-6);
+   gap: var(--space-4);
 }
 
 .cs-decision {
    display: flex;
    flex-direction: column;
-   gap: var(--space-4);
+  gap: var(--space-3);
+}
+
+.cs-process__inner .cs-decision + .cs-decision {
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--color-border);
 }
 
 .cs-decision__header {
