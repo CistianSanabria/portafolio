@@ -594,3 +594,56 @@
       padding: var(--space-4) var(--space-3);
    }
 }
+/* ── COVER ────────────────────────────────────────────── */
+.cs-cover {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+.cs-cover-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.cs-cover-content {
+  position: absolute;
+  bottom: 48px;
+  left: 64px;
+  right: 64px;
+  z-index: 2;
+}
+.cs-cover-headline {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 4.5vw, 4rem);
+  color: #FFFFFF;
+  max-width: 560px;
+  line-height: 1.05;
+  margin-bottom: 32px;
+}
+.cs-cover-meta {
+  display: flex;
+  gap: 48px;
+}
+.cs-cover-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.cs-cover-meta-label {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.cs-cover-meta-value {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #FFFFFF;
+}
