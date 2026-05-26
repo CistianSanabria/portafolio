@@ -468,7 +468,8 @@
     grid-template-columns: 1fr;
     gap: var(--space-8);
   }
-  .cs-overview__text { max-width: 100%; }
+  .cs-overview__text { max-width: 100%; overflow: hidden; }
+  .cs-metric__value { font-size: clamp(1.25rem, 7vw, 2rem); }
   .cs-overview__metrics {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
