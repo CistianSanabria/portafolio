@@ -555,3 +555,241 @@
 .cs-live-link__anchor:hover {
   color: var(--color-accent);
 }
+
+/* ============================================================
+   FLOATING NAV — Case Studies
+   ============================================================ */
+.cs-nav-pill {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  height: 52px;
+  padding: 0 24px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  box-shadow: 0 1px 0 0 var(--color-border), 0 4px 24px rgba(0,0,0,0.06);
+  transition: box-shadow 0.3s ease;
+  max-width: calc(100vw - 32px);
+}
+.cs-nav-pill.scrolled {
+  box-shadow: 0 1px 0 0 var(--color-border), 0 8px 32px rgba(0,0,0,0.1);
+}
+.cs-nav-pill__logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.cs-nav-pill__logo img {
+  height: 20px;
+  width: auto;
+  display: block;
+}
+.cs-nav-pill__links {
+  display: flex;
+  list-style: none;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+}
+.cs-nav-pill__link {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+.cs-nav-pill__link:hover { color: var(--color-text); }
+.cs-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  flex-shrink: 0;
+}
+.cs-hamburger span {
+  width: 22px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+  display: block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.cs-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.cs-hamburger.open span:nth-child(2) { opacity: 0; }
+.cs-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ============================================================
+   WORKFLOW IMAGE SWAP
+   ============================================================ */
+.cs-workflow--mobile { display: none; }
+.cs-workflow--desktop { display: block; }
+
+/* ============================================================
+   PAM CAROUSEL
+   ============================================================ */
+.cs-carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.cs-carousel__track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+.cs-carousel__slide { min-width: 100%; }
+.cs-carousel__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+}
+.cs-carousel__dots {
+  display: none;
+  justify-content: center;
+  gap: 8px;
+  margin-top: var(--space-3);
+}
+.cs-carousel__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-border);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease;
+}
+.cs-carousel__dot--active { background: var(--color-accent); }
+
+/* Desktop y tablet: grid 4 columnas */
+@media (min-width: 769px) {
+  .cs-carousel { overflow: visible; }
+  .cs-carousel__track {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
+    transform: none !important;
+    transition: none;
+  }
+  .cs-carousel__slide { min-width: auto; }
+  .cs-carousel__dots { display: none; }
+}
+
+/* ============================================================
+   RESULTS TABS
+   ============================================================ */
+.cs-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.cs-tabs__nav {
+  display: flex;
+  border-bottom: 1px solid var(--color-border);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.cs-tabs__nav::-webkit-scrollbar { display: none; }
+.cs-tabs__tab {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: var(--space-2) var(--space-4);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  margin-bottom: -1px;
+}
+.cs-tabs__tab--active {
+  color: var(--color-text);
+  border-bottom-color: var(--color-accent);
+}
+.cs-tabs__tab:hover { color: var(--color-text); }
+.cs-tabs__panel {
+  display: none;
+  max-height: 70vh;
+  overflow-y: auto;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+}
+.cs-tabs__panel--active { display: block; }
+.cs-tabs__img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================
+   KEY LEARNINGS — segundo parrafo
+   ============================================================ */
+.cs-learning__text--second { margin-top: var(--space-4); }
+
+/* ============================================================
+   MOBILE — Floating nav + ajustes Gannar
+   ============================================================ */
+@media (max-width: 768px) {
+  .cs-nav-pill {
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: none;
+    border-radius: 0;
+    max-width: 100%;
+    width: 100%;
+    padding: 0 20px;
+    gap: 0;
+    justify-content: space-between;
+  }
+  .cs-nav-pill__logo img { height: 18px; }
+  .cs-nav-pill__links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    right: 0;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    padding: 16px 20px 20px;
+    gap: 16px;
+    margin: 0;
+  }
+  .cs-nav-pill__links.open { display: flex; }
+  .cs-nav-pill__links .cs-nav-pill__link { font-size: 16px; }
+  .cs-hamburger { display: flex; }
+  .has-floating-nav .cs-cover {
+    margin-top: 52px;
+    height: calc(100svh - 52px);
+    max-height: none;
+  }
+  .cs-workflow--desktop { display: none; }
+  .cs-workflow--mobile { display: block; }
+  .cs-carousel { overflow: hidden; }
+  .cs-carousel__track {
+    display: flex;
+    transform: translateX(0);
+    transition: transform 0.4s ease;
+  }
+  .cs-carousel__slide { min-width: 100%; }
+  .cs-carousel__dots { display: flex; }
+  .cs-tabs__tab { padding: var(--space-2) var(--space-3); font-size: 0.8rem; }
+}
