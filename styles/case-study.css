@@ -911,7 +911,6 @@
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    transform: none !important;
   }
   .cs-carousel__track::-webkit-scrollbar { display: none; }
   .cs-carousel__slide {
@@ -941,5 +940,12 @@
   .cs-carousel__slide {
     min-width: 100% !important;
     scroll-snap-align: none !important;
+  }
+}
+
+/* Cover gannar mobile — device izquierdo */
+@media (max-width: 768px) {
+  .cs-cover--gannar .cs-cover-img {
+    object-position: 82% center;
   }
 }

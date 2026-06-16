@@ -219,7 +219,6 @@
   </footer>
 
   <script>
-    // PAM Carousel
     const track = document.getElementById('pam-track');
     const dots = document.querySelectorAll('.cs-carousel__dot');
     let current = 0;
@@ -229,7 +228,7 @@
 
     function goToSlide(index) {
       current = index;
-      track.style.setProperty('transform', 'translateX(-' + (index * 100) + '%)', 'important');
+      track.style.transform = 'translateX(-' + (index * 100) + '%)';
       dots.forEach((dot, i) => dot.classList.toggle('cs-carousel__dot--active', i === index));
     }
 
@@ -260,7 +259,6 @@
       isHorizontal = null;
     });
 
-    // Results tabs
     const tabs = document.querySelectorAll('.cs-tabs__tab');
     const panels = document.querySelectorAll('.cs-tabs__panel');
     tabs.forEach(tab => {
