@@ -219,20 +219,19 @@
   </footer>
 
   <script>
-    window.addEventListener('scroll', () => {
-    });
-    const navLinks = document.getElementById('cs-nav-links');
-    hamburger.addEventListener('click', () => {
-    });
+    // PAM Carousel
     const track = document.getElementById('pam-track');
     const dots = document.querySelectorAll('.cs-carousel__dot');
     let current = 0;
+
     function goToSlide(index) {
       current = index;
       track.style.transform = 'translateX(-' + (index * 100) + '%)';
       dots.forEach((dot, i) => dot.classList.toggle('cs-carousel__dot--active', i === index));
     }
+
     dots.forEach(dot => dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.index))));
+
     let startX = 0;
     track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
     track.addEventListener('touchend', e => {
@@ -242,6 +241,8 @@
         if (diff < 0 && current > 0) goToSlide(current - 1);
       }
     });
+
+    // Results tabs
     const tabs = document.querySelectorAll('.cs-tabs__tab');
     const panels = document.querySelectorAll('.cs-tabs__panel');
     tabs.forEach(tab => {
