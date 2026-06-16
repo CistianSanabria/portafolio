@@ -844,3 +844,17 @@
     mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
   }
 }
+
+/* Cover Gannar — mobile: solo device derecho */
+@media (max-width: 768px) {
+  .cs-cover--gannar .cs-cover-img {
+    object-position: right center;
+  }
+}
+
+/* Tabs nav — left align en mobile */
+@media (max-width: 768px) {
+  .cs-tabs__nav {
+    justify-content: flex-start;
+  }
+}
