@@ -858,3 +858,38 @@
     justify-content: flex-start;
   }
 }
+
+/* Fix 1: Cover gannar mobile — solo device izquierdo */
+@media (max-width: 768px) {
+  .cs-cover--gannar .cs-cover-img {
+    object-position: 15% center;
+  }
+}
+
+/* Fix 2: DS image full bleed mobile */
+.cs-decision__image--ds {
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .cs-decision__image--ds {
+    width: 100vw;
+    margin-left: calc(-1 * var(--space-3));
+    max-width: none;
+  }
+}
+
+/* Fix 3: Carousel touch-action */
+@media (max-width: 768px) {
+  .cs-carousel {
+    touch-action: pan-y;
+  }
+}
+
+/* Fix 4: Tabs imagen completa sin crop */
+@media (max-width: 768px) {
+  .cs-tabs__img {
+    max-height: none;
+    height: auto;
+    object-fit: unset;
+  }
+}
