@@ -893,3 +893,29 @@
     object-fit: unset;
   }
 }
+
+/* Fix cover gannar mobile — posición calculada device izquierdo */
+@media (max-width: 768px) {
+  .cs-cover--gannar .cs-cover-img {
+    object-position: 68% center;
+  }
+}
+
+/* Carousel — scroll snap mobile */
+@media (max-width: 768px) {
+  .cs-carousel {
+    overflow: hidden;
+  }
+  .cs-carousel__track {
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    transform: none !important;
+  }
+  .cs-carousel__track::-webkit-scrollbar { display: none; }
+  .cs-carousel__slide {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+}
