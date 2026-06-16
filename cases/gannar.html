@@ -8,24 +8,23 @@
   <link rel="stylesheet" href="../styles/main.css" />
   <link rel="stylesheet" href="../styles/case-study.css" />
 </head>
-<body class="has-floating-nav">
+<body>
 
-  <!-- NAV FLOTANTE -->
-  <nav class="cs-nav-pill" id="cs-nav-pill" aria-label="Case study navigation">
-    <a href="../index.html" class="cs-nav-pill__logo" aria-label="Back to home">
-      <img src="../assets/CS_Vector.svg" alt="CS" width="48" height="20">
+  <!-- HEADER -->
+  <header class="cs-header">
+    <a href="../index.html" class="cs-logo" aria-label="Back to home">
+      <img src="../assets/CS_Vector.svg" alt="Cristian Sanabria" width="32" height="32" />
     </a>
-    <ul class="cs-nav-pill__links" id="cs-nav-links" role="list">
-      <li><a href="../index.html#work" class="cs-nav-pill__link">← Back to work</a></li>
-      <li><a href="commizzion-backoffice.html" class="cs-nav-pill__link">Next: Commizzion →</a></li>
-    </ul>
-    <button class="cs-hamburger" id="cs-hamburger" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+    <a href="../index.html" class="cs-back">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Back to work
+    </a>
+  </header>
 
   <!-- COVER -->
-  <section class="cs-cover">
+  <section class="cs-cover cs-cover--gannar">
     <img src="../assets/cases/gannar/gannar-cover.webp"
          alt="Gannar Casino MVP — cover"
          class="cs-cover-img">
@@ -92,7 +91,6 @@
           </div>
           <p class="cs-decision__body">This wasn't an isolated design decision — it was a joint bet between design, PM, and development to compress months of production into weeks. The rationale was clear: without this approach, the 2026 World Cup deadline was unreachable.</p>
           <div class="cs-decision__image-wrap">
-            <span class="cs-caption">AI workflow — Define → Build → Iterate → Validate → Ship</span>
             <img src="../assets/cases/gannar/gannar-workflow-desktop.webp" alt="AI workflow diagram" class="cs-decision__image cs-workflow--desktop" loading="lazy" />
             <img src="../assets/cases/gannar/gannar-workflow-mobile.webp" alt="AI workflow diagram" class="cs-decision__image cs-workflow--mobile" loading="lazy" />
           </div>
@@ -106,7 +104,6 @@
           </div>
           <p class="cs-decision__body">A joint decision with development. By using an open source design system already living in the team's stack, every designed component had a direct code equivalent — eliminating handoff friction in a timeline with zero margin.</p>
           <div class="cs-decision__image-wrap">
-            <span class="cs-caption">ShadCN base → Gannar DS</span>
             <img src="../assets/cases/gannar/gannar-ds.webp" alt="ShadCN to Gannar DS comparison" class="cs-decision__image" loading="lazy" />
           </div>
         </div>
@@ -206,9 +203,9 @@
     <!-- NEXT PROJECT -->
     <nav class="cs-nav-next">
       <span class="cs-label">Next project</span>
-      <a href="commizzion-backoffice.html" class="cs-next-link">
-        <span class="cs-next-link__title">Commizzion Backoffice</span>
-        <span class="cs-next-link__tags">Admin Platform · Redesign</span>
+      <a href="rodriguez.html" class="cs-next-link">
+        <span class="cs-next-link__title">The Rodriguez Project</span>
+        <span class="cs-next-link__tags">E-Commerce · Redesign</span>
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
           <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -222,16 +219,10 @@
   </footer>
 
   <script>
-    const navPill = document.getElementById('cs-nav-pill');
     window.addEventListener('scroll', () => {
-      navPill.classList.toggle('scrolled', window.scrollY > 20);
     });
-    const hamburger = document.getElementById('cs-hamburger');
     const navLinks = document.getElementById('cs-nav-links');
     hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      navLinks.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', hamburger.classList.contains('open'));
     });
     const track = document.getElementById('pam-track');
     const dots = document.querySelectorAll('.cs-carousel__dot');

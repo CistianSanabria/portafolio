@@ -242,8 +242,6 @@
   width: 100%;
 
   display: block;
-  border-radius: 4px;
-  border: 1px solid var(--color-border);
   object-fit: contain;
   object-position: top;
 }
@@ -262,8 +260,6 @@
   height: 460px;
   object-fit: contain;
   object-position: top;
-  border-radius: 4px;
-  border: 1px solid var(--color-border);
   display: block;
 }
 .cs-before-compare__mobile {
@@ -271,8 +267,6 @@
   height: 460px;
   object-fit: contain;
   object-position: top;
-  border-radius: 4px;
-  border: 1px solid var(--color-border);
   display: block;
 }
 
@@ -290,8 +284,6 @@
   height: auto;
   object-fit: contain;
   object-position: top;
-  border-radius: 4px;
-  border: 1px solid var(--color-border);
   display: block;
 }
 
@@ -328,8 +320,6 @@
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 4px;
-  border: 1px solid var(--color-border);
 }
 .cs-after-compare {
   display: grid;
@@ -346,8 +336,6 @@
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 4px;
-  border: 1px solid var(--color-border);
 }
 .cs-after-compare__image--mobile {
   width: 220px;
@@ -643,7 +631,6 @@
 .cs-carousel {
   position: relative;
   overflow: hidden;
-  border-radius: 4px;
 }
 .cs-carousel__track {
   display: flex;
@@ -654,8 +641,6 @@
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 4px;
-  border: 1px solid var(--color-border);
 }
 .cs-carousel__dots {
   display: none;
@@ -728,8 +713,6 @@
   display: none;
   max-height: 70vh;
   overflow-y: auto;
-  border-radius: 4px;
-  border: 1px solid var(--color-border);
 }
 .cs-tabs__panel--active { display: block; }
 .cs-tabs__img {
@@ -792,4 +775,31 @@
   .cs-carousel__slide { min-width: 100%; }
   .cs-carousel__dots { display: flex; }
   .cs-tabs__tab { padding: var(--space-2) var(--space-3); font-size: 0.8rem; }
+}
+
+/* Cover Gannar — ajuste object-position */
+.cs-cover--gannar .cs-cover-img {
+  object-position: right 70%;
+}
+
+/* Tabs — nav centrado */
+.cs-tabs__nav {
+  justify-content: center;
+}
+
+/* Tabs — mobile opción B */
+@media (max-width: 768px) {
+  .cs-tabs__panel {
+    max-height: none;
+    overflow-y: visible;
+    display: flex;
+    justify-content: center;
+    border: none;
+  }
+  .cs-tabs__img {
+    width: auto;
+    max-width: 85%;
+    max-height: 65vh;
+    height: auto;
+  }
 }
