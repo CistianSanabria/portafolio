@@ -919,3 +919,27 @@
     flex-shrink: 0;
   }
 }
+
+/* Cover — ajuste final device izquierdo */
+@media (max-width: 768px) {
+  .cs-cover--gannar .cs-cover-img {
+    object-position: 76% center;
+  }
+}
+
+/* Carousel — revert scroll snap, volver a JS transform */
+@media (max-width: 768px) {
+  .cs-carousel {
+    overflow: hidden !important;
+  }
+  .cs-carousel__track {
+    overflow-x: hidden !important;
+    scroll-snap-type: none !important;
+    transition: transform 0.4s ease !important;
+    touch-action: pan-y;
+  }
+  .cs-carousel__slide {
+    min-width: 100% !important;
+    scroll-snap-align: none !important;
+  }
+}
