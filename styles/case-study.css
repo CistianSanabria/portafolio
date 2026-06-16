@@ -803,3 +803,15 @@
     height: auto;
   }
 }
+
+/* Tabs — gradiente indicador de scroll */
+.cs-tabs__panel--active::after {
+  content: '';
+  display: block;
+  position: sticky;
+  bottom: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--color-bg));
+  pointer-events: none;
+  margin-top: -80px;
+}
