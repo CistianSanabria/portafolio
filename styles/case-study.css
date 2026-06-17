@@ -1048,3 +1048,8 @@
 .cs-tabs--no-gradient .cs-tabs__panel--active::after {
   display: none;
 }
+
+/* Cover BO — show keyboard bottom */
+.cs-cover--commizzion-bo .cs-cover-img {
+  object-position: center bottom;
+}
