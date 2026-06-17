@@ -949,3 +949,7 @@
     object-position: 82% center;
   }
 }
+
+@media (max-width: 768px) {
+  .cs-cover--gannar .cs-cover-img { object-position: 82% center; }
+}

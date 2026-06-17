@@ -223,8 +223,8 @@
     const dots = document.querySelectorAll('.cs-carousel__dot');
     let current = 0;
     let startX = 0;
-    let startY = 0;
-    let isHorizontal = null;
+    let currentX = 0;
+    let isDragging = false;
 
     function goToSlide(index) {
       current = index;
@@ -236,27 +236,23 @@
 
     track.addEventListener('touchstart', e => {
       startX = e.touches[0].clientX;
-      startY = e.touches[0].clientY;
-      isHorizontal = null;
+      currentX = startX;
+      isDragging = true;
     }, { passive: true });
 
     track.addEventListener('touchmove', e => {
-      if (isHorizontal === null) {
-        const dx = Math.abs(e.touches[0].clientX - startX);
-        const dy = Math.abs(e.touches[0].clientY - startY);
-        isHorizontal = dx > dy;
-      }
-      if (isHorizontal) e.preventDefault();
-    }, { passive: false });
+      if (!isDragging) return;
+      currentX = e.touches[0].clientX;
+    }, { passive: true });
 
-    track.addEventListener('touchend', e => {
-      if (!isHorizontal) return;
-      const diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 30) {
+    track.addEventListener('touchend', () => {
+      if (!isDragging) return;
+      const diff = startX - currentX;
+      if (Math.abs(diff) > 40) {
         if (diff > 0 && current < 3) goToSlide(current + 1);
         if (diff < 0 && current > 0) goToSlide(current - 1);
       }
-      isHorizontal = null;
+      isDragging = false;
     });
 
     const tabs = document.querySelectorAll('.cs-tabs__tab');
