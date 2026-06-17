@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Commizzion Backoffice — Cristian Sanabria</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/FavIcon_CS_Black.svg" />
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/case-study.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="cs-header">
+    <a href="../index.html" class="cs-logo" aria-label="Back to home">
+      <img src="../assets/CS_Vector.svg" alt="Cristian Sanabria" width="32" height="32" />
+    </a>
+    <a href="../index.html" class="cs-back">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Back to work
+    </a>
+  </header>
+
+  <!-- COVER -->
+  <section class="cs-cover cs-cover--commizzion-bo">
+    <img src="../assets/cases/commizzion-bo/commizzion-bo-cover.webp"
+         alt="Commizzion Backoffice — cover"
+         class="cs-cover-img">
+    <div class="cs-cover-content">
+      <h1 class="cs-cover-headline">A complete redesign that made a complex admin platform actually work</h1>
+      <div class="cs-cover-meta">
+        <div class="cs-cover-meta-item">
+          <span class="cs-cover-meta-label">Company</span>
+          <span class="cs-cover-meta-value">Inlaze</span>
+        </div>
+        <div class="cs-cover-meta-item">
+          <span class="cs-cover-meta-label">Year</span>
+          <span class="cs-cover-meta-value">2025–2026</span>
+        </div>
+        <div class="cs-cover-meta-item">
+          <span class="cs-cover-meta-label">Type</span>
+          <span class="cs-cover-meta-value">Admin Platform · Redesign</span>
+        </div>
+        <div class="cs-cover-meta-item">
+          <span class="cs-cover-meta-label">Role</span>
+          <span class="cs-cover-meta-value">Design Lead</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main class="cs-main">
+
+    <!-- OVERVIEW -->
+    <section class="cs-overview">
+      <div class="cs-overview__inner">
+        <div class="cs-overview__problem">
+          <span class="cs-label">Overview</span>
+          <p class="cs-overview__text">The admin platform was so complex only 2 people could operate it. Every operational change required a development ticket, blocking production for hours. The redesign started with the architecture — not the interface — and delivered a platform the entire team could operate independently.</p>
+        </div>
+        <div class="cs-overview__metrics">
+          <div class="cs-metric">
+            <span class="cs-metric__value">2→10</span>
+            <span class="cs-metric__label">Admin users</span>
+          </div>
+          <div class="cs-metric">
+            <span class="cs-metric__value">5 min</span>
+            <span class="cs-metric__label">vs 2h+ per change</span>
+          </div>
+          <div class="cs-metric">
+            <span class="cs-metric__value">0</span>
+            <span class="cs-metric__label">Interruptions to dev team</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="cs-process">
+      <span class="cs-label">Process</span>
+      <div class="cs-process__inner">
+
+        <!-- Decision 01 -->
+        <div class="cs-decision">
+          <div class="cs-decision__header">
+            <span class="cs-decision__number">01</span>
+            <h2 class="cs-decision__title">Sitemap restructure before touching UI</h2>
+          </div>
+          <p class="cs-decision__body">Before designing a single screen, the navigation was audited and reorganized. The old platform had 22 flat items without hierarchy. The redesign created 6 logical groups with two-level structure, eliminating ambiguity about where to find anything.</p>
+
+          <div class="cs-decision__image-wrap">
+            <div class="cs-sitemap">
+              <div class="cs-sitemap__col">
+                <span class="cs-sitemap__col-label">Before — flat, uncategorized</span>
+                <div class="cs-sitemap__groups">
+                  <div class="cs-sitemap__group cs-sitemap__group--before">
+                    <span class="cs-sitemap__group-label">Administración</span>
+                    <div class="cs-sitemap__items">
+                      <span class="cs-sitemap__item cs-sitemap__item--before">Casas de apuestas</span>
+                      <span class="cs-sitemap__item cs-sitemap__item--before">Gestionar personal</span>
+                      <span class="cs-sitemap__item cs-sitemap__item--before">Gestionar cargos</span>
+                      <span class="cs-sitemap__item cs-sitemap__item--before">Mensajes de motivos</span>
+                      <span class="cs-sitemap__item cs-sitemap__item--before">CPA</span>
+                      <span class="cs-sitemap__item cs-sitemap__item--before">Token admin</span>
+                    </div>
+                  </div>
+                  <div class="cs-sitemap__group cs-sitemap__group--before">
+                    <span class="cs-sitemap__group-label">Aliados</span>
+                    <div class="cs-sitemap__items">
+                      <span class="cs-sitemap__item cs-sitemap__item--before">Por verificar</span>
+                      <span class="cs-sitemap__item cs-sitemap__item--before">Afiliados</span>
+                      <span class="cs-sitemap__item cs-sitemap__item--before">Token afiliados</span>
+                      <span class="cs-sitemap__item cs-sitemap__item--before">Notificaciones</span>
+                    </div>
+                  </div>
+                  <div class="cs-sitemap__group cs-sitemap__group--before">
+                    <span class="cs-sitemap__group-label">Campañas</span>
+                    <div class="cs-sitemap__items">
+                      <span class="cs-sitemap__item cs-sitemap__item--before">Gestionar campañas</span>
+                      <span class="cs-sitemap__item cs-sitemap__item--before">Gestionar links</span>
+                      <span class="cs-sitemap__item cs-sitemap__item--before">Campaña específica</span>
+                      <span class="cs-sitemap__item cs-sitemap__item--before">Postback</span>
+                    </div>
+                  </div>
+                  <div class="cs-sitemap__group cs-sitemap__group--before">
+                    <span class="cs-sitemap__group-label">Reportes</span>
+                    <div class="cs-sitemap__items">
+                      <span class="cs-sitemap__item cs-sitemap__item--before">Consolidado</span>
+                      <span class="cs-sitemap__item cs-sitemap__item--before">Jugadores</span>
+                    </div>
+                  </div>
+                  <div class="cs-sitemap__group cs-sitemap__group--before">
+                    <span class="cs-sitemap__group-label">Facturación</span>
+                    <div class="cs-sitemap__items">
+                      <span class="cs-sitemap__item cs-sitemap__item--before">Facturas</span>
+                      <span class="cs-sitemap__item cs-sitemap__item--before">Own company</span>
+                      <span class="cs-sitemap__item cs-sitemap__item--before">Tasa FX</span>
+                      <span class="cs-sitemap__item cs-sitemap__item--before">Tasa FX %</span>
+                      <span class="cs-sitemap__item cs-sitemap__item--before">Pago mínimo</span>
+                    </div>
+                  </div>
+                  <div class="cs-sitemap__group cs-sitemap__group--before">
+                    <span class="cs-sitemap__group-label">Referidos</span>
+                    <div class="cs-sitemap__items">
+                      <span class="cs-sitemap__item cs-sitemap__item--before">Porcentaje referidos</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cs-sitemap__arrow">
+                <div class="cs-sitemap__arrow-line"></div>
+                <span class="cs-sitemap__arrow-icon">→</span>
+                <div class="cs-sitemap__arrow-line"></div>
+              </div>
+
+              <div class="cs-sitemap__col">
+                <span class="cs-sitemap__col-label">After — two-level hierarchy</span>
+                <div class="cs-sitemap__groups">
+                  <div class="cs-sitemap__group cs-sitemap__group--after">
+                    <span class="cs-sitemap__group-label">Administración</span>
+                    <div class="cs-sitemap__items">
+                      <span class="cs-sitemap__item cs-sitemap__item--after">Equipo</span>
+                      <span class="cs-sitemap__item cs-sitemap__item--after">Afiliados</span>
+                    </div>
+                  </div>
+                  <div class="cs-sitemap__group cs-sitemap__group--after">
+                    <span class="cs-sitemap__group-label">Gestionar campañas</span>
+                    <div class="cs-sitemap__items">
+                      <span class="cs-sitemap__item cs-sitemap__item--after">Operadores</span>
+                      <span class="cs-sitemap__item cs-sitemap__item--after">Campañas</span>
+                      <span class="cs-sitemap__item cs-sitemap__item--after">Gestión de enlaces</span>
+                    </div>
+                  </div>
+                  <div class="cs-sitemap__group cs-sitemap__group--after">
+                    <span class="cs-sitemap__group-label">Reportes</span>
+                    <div class="cs-sitemap__items">
+                      <span class="cs-sitemap__item cs-sitemap__item--after">Consolidado</span>
+                      <span class="cs-sitemap__item cs-sitemap__item--after">Jugadores</span>
+                      <span class="cs-sitemap__item cs-sitemap__item--after">Red de subafiliados</span>
+                    </div>
+                  </div>
+                  <div class="cs-sitemap__group cs-sitemap__group--after">
+                    <span class="cs-sitemap__group-label">Facturación</span>
+                    <div class="cs-sitemap__items">
+                      <span class="cs-sitemap__item cs-sitemap__item--after">Cartera operador</span>
+                      <span class="cs-sitemap__item cs-sitemap__item--after">Cartera afiliados</span>
+                    </div>
+                  </div>
+                  <div class="cs-sitemap__group cs-sitemap__group--after">
+                    <span class="cs-sitemap__group-label">Logs</span>
+                    <div class="cs-sitemap__items">
+                      <span class="cs-sitemap__item cs-sitemap__item--after">Logs de auditoría</span>
+                    </div>
+                  </div>
+                  <div class="cs-sitemap__group cs-sitemap__group--after">
+                    <span class="cs-sitemap__group-label">Configuration</span>
+                    <div class="cs-sitemap__items">
+                      <span class="cs-sitemap__item cs-sitemap__item--after">System settings</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decision 02 -->
+        <div class="cs-decision">
+          <div class="cs-decision__header">
+            <span class="cs-decision__number">02</span>
+            <h2 class="cs-decision__title">Look & feel inherited from Account DS</h2>
+          </div>
+          <p class="cs-decision__body">No visual exploration from scratch. The Backoffice adopted the Unified C4 Design System built for Commizzion Account — same components, same tokens. Cross-platform consistency at zero exploration cost.</p>
+          <div class="cs-decision__image-wrap">
+            <img src="../assets/cases/commizzion-bo/commizzion-bo-ds.webp" alt="Commizzion Account and Backoffice sharing the Unified C4 Design System" class="cs-decision__image" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Decision 03 -->
+        <div class="cs-decision">
+          <div class="cs-decision__header">
+            <span class="cs-decision__number">03</span>
+            <h2 class="cs-decision__title">Affiliate management as self-service</h2>
+          </div>
+          <p class="cs-decision__body">Approving, editing, and updating affiliate status previously required a development ticket for every change. The redesigned module gives the operations team full control — status changes, document verification, and account management without touching code.</p>
+          <div class="cs-decision__image-wrap">
+            <img src="../assets/cases/commizzion-bo/commizzion-bo-affiliates-compare.webp" alt="Affiliate management before and after" class="cs-decision__image" loading="lazy" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="cs-results">
+      <div class="cs-results__inner">
+        <span class="cs-label">Results</span>
+        <div class="cs-results__metrics">
+          <div class="cs-metric cs-metric--large">
+            <span class="cs-metric__value">2→10</span>
+            <span class="cs-metric__label">Admin users</span>
+          </div>
+          <div class="cs-metric cs-metric--large">
+            <span class="cs-metric__value">5 min</span>
+            <span class="cs-metric__label">vs 2h+ per change</span>
+          </div>
+          <div class="cs-metric cs-metric--large">
+            <span class="cs-metric__value">0</span>
+            <span class="cs-metric__label">Interruptions to dev team</span>
+          </div>
+        </div>
+
+        <div class="cs-tabs">
+          <div class="cs-tabs__nav" role="tablist">
+            <button class="cs-tabs__tab cs-tabs__tab--active" role="tab" data-tab="0">Equipo</button>
+            <button class="cs-tabs__tab" role="tab" data-tab="1">Enlaces</button>
+            <button class="cs-tabs__tab" role="tab" data-tab="2">Subafiliados</button>
+            <button class="cs-tabs__tab" role="tab" data-tab="3">Cartera</button>
+          </div>
+          <div class="cs-tabs__content">
+            <div class="cs-tabs__panel cs-tabs__panel--active" data-panel="0">
+              <img src="../assets/cases/commizzion-bo/commizzion-bo-result-equipo.webp" alt="Equipo full screen" class="cs-tabs__img" loading="lazy" />
+            </div>
+            <div class="cs-tabs__panel" data-panel="1">
+              <img src="../assets/cases/commizzion-bo/commizzion-bo-result-enlaces.webp" alt="Gestión de enlaces full screen" class="cs-tabs__img" loading="lazy" />
+            </div>
+            <div class="cs-tabs__panel" data-panel="2">
+              <img src="../assets/cases/commizzion-bo/commizzion-bo-result-subafiliados.webp" alt="Red de subafiliados full screen" class="cs-tabs__img" loading="lazy" />
+            </div>
+            <div class="cs-tabs__panel" data-panel="3">
+              <img src="../assets/cases/commizzion-bo/commizzion-bo-result-cartera.webp" alt="Cartera operador full screen" class="cs-tabs__img" loading="lazy" />
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-results__learning">
+          <span class="cs-label">Key learnings</span>
+          <p class="cs-learning__text">"A platform's complexity isn't solved by better screens — it's solved by better architecture."</p>
+          <p class="cs-learning__text cs-learning__text--second">"Inheriting a design system isn't a shortcut. It's a strategic decision that pays compound interest."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT PROJECT -->
+    <nav class="cs-nav-next">
+      <span class="cs-label">Next project</span>
+      <a href="commizzion-account.html" class="cs-next-link">
+        <span class="cs-next-link__title">Commizzion Account</span>
+        <span class="cs-next-link__tags">Platform · Design System</span>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </nav>
+
+  </main>
+
+  <footer class="cs-footer">
+    <p>© 2026 Cristian Sanabria</p>
+  </footer>
+
+  <script>
+    const tabs = document.querySelectorAll('.cs-tabs__tab');
+    const panels = document.querySelectorAll('.cs-tabs__panel');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const index = parseInt(tab.dataset.tab);
+        tabs.forEach(t => t.classList.remove('cs-tabs__tab--active'));
+        panels.forEach(p => p.classList.remove('cs-tabs__panel--active'));
+        tab.classList.add('cs-tabs__tab--active');
+        panels[index].classList.add('cs-tabs__panel--active');
+      });
+    });
+  </script>
+
+</body>
+</html>
