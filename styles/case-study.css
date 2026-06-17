@@ -1038,3 +1038,13 @@
 .cs-cover--commizzion-bo .cs-cover-img {
   object-position: center center;
 }
+
+/* Cover BO — elevate mockup */
+.cs-cover--commizzion-bo .cs-cover-img {
+  object-position: center 30%;
+}
+
+/* Tabs — disable gradient */
+.cs-tabs--no-gradient .cs-tabs__panel--active::after {
+  display: none;
+}
