@@ -1053,3 +1053,13 @@
 .cs-cover--commizzion-bo .cs-cover-img {
   object-position: center bottom;
 }
+
+/* Cover — Commizzion Account (blue gradient baked in image) */
+.cs-cover--commizzion-account .cs-cover-img {
+  object-position: center center;
+}
+
+/* Decision — spacing when two images stacked in same wrap */
+.cs-decision__image-wrap > img + img {
+  margin-top: var(--space-4);
+}
