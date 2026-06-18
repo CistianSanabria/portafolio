@@ -1059,7 +1059,44 @@
   object-position: center center;
 }
 
-/* Decision — spacing when two images stacked in same wrap */
-.cs-decision__image-wrap > img + img {
+/* Decision — spacing between stacked elements in same wrap */
+.cs-decision__image-wrap > * + * {
   margin-top: var(--space-4);
+}
+
+/* Decision — generic block (caption + image grouping) */
+.cs-decision__block {
+  display: block;
+}
+.cs-decision__block .cs-caption {
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+/* Decision — 2-column row (hub + web) */
+.cs-decision__image-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+@media (max-width: 768px) {
+  .cs-decision__image-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Decision — mobile screens grid (4 columns) */
+.cs-decision__mobile-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+}
+.cs-decision__mobile-grid .cs-decision__image {
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .cs-decision__mobile-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
