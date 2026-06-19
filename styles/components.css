@@ -418,7 +418,9 @@ section {
   min-height: 400px;
   border-bottom: 1px solid var(--color-border);
   transition: background 0.2s ease;
-  cursor: default;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 
 .project-card:hover {
@@ -534,6 +536,8 @@ section {
   height: 100%;
   min-height: 320px;
   background: var(--color-surface);
+  object-fit: cover;
+  display: block;
 }
 
 /* Cards mobile — imagen arriba, contenido abajo */
