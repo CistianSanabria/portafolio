@@ -127,11 +127,27 @@
             </div>
             <div class="cs-decision__block">
               <span class="cs-caption">Mobile — Subaffiliates, Campaigns, Postback, Configuration</span>
-              <div class="cs-decision__mobile-grid">
-                <img src="../assets/cases/commizzion-account/commizzion-account-mf-mobile-01.webp" alt="Subaffiliates — mobile" class="cs-decision__image" loading="lazy" />
-                <img src="../assets/cases/commizzion-account/commizzion-account-mf-mobile-02.webp" alt="Campaigns — mobile" class="cs-decision__image" loading="lazy" />
-                <img src="../assets/cases/commizzion-account/commizzion-account-mf-mobile-03.webp" alt="Postback — mobile" class="cs-decision__image" loading="lazy" />
-                <img src="../assets/cases/commizzion-account/commizzion-account-mf-mobile-04.webp" alt="Configuration — mobile" class="cs-decision__image" loading="lazy" />
+              <div class="cs-carousel" id="account-mobile-carousel">
+                <div class="cs-carousel__track" id="account-mobile-track">
+                  <div class="cs-carousel__slide">
+                    <img src="../assets/cases/commizzion-account/commizzion-account-mf-mobile-01.webp" alt="Subaffiliates — mobile" class="cs-carousel__img" loading="lazy" />
+                  </div>
+                  <div class="cs-carousel__slide">
+                    <img src="../assets/cases/commizzion-account/commizzion-account-mf-mobile-02.webp" alt="Campaigns — mobile" class="cs-carousel__img" loading="lazy" />
+                  </div>
+                  <div class="cs-carousel__slide">
+                    <img src="../assets/cases/commizzion-account/commizzion-account-mf-mobile-03.webp" alt="Postback — mobile" class="cs-carousel__img" loading="lazy" />
+                  </div>
+                  <div class="cs-carousel__slide">
+                    <img src="../assets/cases/commizzion-account/commizzion-account-mf-mobile-04.webp" alt="Configuration — mobile" class="cs-carousel__img" loading="lazy" />
+                  </div>
+                </div>
+                <div class="cs-carousel__dots" id="account-mobile-dots">
+                  <button class="cs-carousel__dot cs-carousel__dot--active" data-index="0" aria-label="Slide 1"></button>
+                  <button class="cs-carousel__dot" data-index="1" aria-label="Slide 2"></button>
+                  <button class="cs-carousel__dot" data-index="2" aria-label="Slide 3"></button>
+                  <button class="cs-carousel__dot" data-index="3" aria-label="Slide 4"></button>
+                </div>
               </div>
             </div>
           </div>
@@ -206,9 +222,29 @@
 
         <div class="cs-results__learning">
           <span class="cs-label">Key learnings</span>
-          <p class="cs-learning__text">"A design system's value compounds over time — each new product surface built on the CM foundation shipped faster, with greater consistency, and with less rework. What starts as a design decision becomes a business asset."</p>
-          <p class="cs-learning__text cs-learning__text--second">"Reducing onboarding friction by 80% didn't just improve the user experience — it made the platform accessible to a broader affiliate base, directly supporting commercial expansion into new markets and strategic partnerships."</p>
-          <p class="cs-learning__text cs-learning__text--second">"Sustained product iteration, grounded in real user data, turns a redesign into a long-term competitive advantage. Each improvement cycle increased affiliate engagement and retention — compounding the platform's value over time."</p>
+          <div class="cs-learning-list">
+            <div class="cs-learning-item">
+              <span class="cs-learning-item__number">01</span>
+              <div class="cs-learning-item__content">
+                <h3 class="cs-learning-item__title">Design systems compound</h3>
+                <p class="cs-learning-item__body">A design system's value compounds over time — each new product surface built on the CM foundation shipped faster, with greater consistency, and with less rework. What starts as a design decision becomes a business asset.</p>
+              </div>
+            </div>
+            <div class="cs-learning-item">
+              <span class="cs-learning-item__number">02</span>
+              <div class="cs-learning-item__content">
+                <h3 class="cs-learning-item__title">Friction reduction enables expansion</h3>
+                <p class="cs-learning-item__body">Reducing onboarding friction by 80% didn't just improve the user experience — it made the platform accessible to a broader affiliate base, directly supporting commercial expansion into new markets and strategic partnerships.</p>
+              </div>
+            </div>
+            <div class="cs-learning-item">
+              <span class="cs-learning-item__number">03</span>
+              <div class="cs-learning-item__content">
+                <h3 class="cs-learning-item__title">Iteration is a competitive advantage</h3>
+                <p class="cs-learning-item__body">Sustained product iteration, grounded in real user data, turns a redesign into a long-term competitive advantage. Each improvement cycle increased affiliate engagement and retention — compounding the platform's value over time.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -232,6 +268,25 @@
   </footer>
 
   <script>
+    const accountMobileTrack = document.getElementById('account-mobile-track');
+    const accountMobileDots = document.querySelectorAll('#account-mobile-dots .cs-carousel__dot');
+    let accountMobileCurrent = 0;
+    let accountMobileStartX = 0;
+    function goToAccountMobileSlide(index) {
+      accountMobileCurrent = index;
+      accountMobileTrack.style.transform = 'translateX(-' + (index * 100) + '%)';
+      accountMobileDots.forEach((dot, i) => dot.classList.toggle('cs-carousel__dot--active', i === index));
+    }
+    accountMobileDots.forEach(dot => dot.addEventListener('click', () => goToAccountMobileSlide(parseInt(dot.dataset.index))));
+    accountMobileTrack.addEventListener('touchstart', e => {
+      accountMobileStartX = e.changedTouches[0].clientX;
+    });
+    accountMobileTrack.addEventListener('touchend', e => {
+      const diff = accountMobileStartX - e.changedTouches[0].clientX;
+      if (diff > 40) goToAccountMobileSlide(Math.min(accountMobileCurrent + 1, 3));
+      if (diff < -40) goToAccountMobileSlide(Math.max(accountMobileCurrent - 1, 0));
+    });
+
     const tabs = document.querySelectorAll('.cs-tabs__tab');
     const panels = document.querySelectorAll('.cs-tabs__panel');
     tabs.forEach(tab => {
